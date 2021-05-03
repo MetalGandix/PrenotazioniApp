@@ -1,32 +1,32 @@
-package app.prenotazione;
+// package app.prenotazione;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
+// import javax.mail.MessagingException;
+// import javax.mail.internet.MimeMessage;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Component;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.mail.javamail.JavaMailSender;
+// import org.springframework.mail.javamail.MimeMessageHelper;
+// import org.springframework.stereotype.Component;
 
-@Component
-public class SmtpMailSender { 
+// @Component
+// public class SmtpMailSender { 
 
-    @Autowired
-    private JavaMailSender javaMailSender;
-    public void send(String to, String subject, String body) throws MessagingException {
+//     @Autowired
+//     private JavaMailSender javaMailSender;
+//     public void send(String to, String subject, String body) throws MessagingException {
 
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper;
+//         MimeMessage message = javaMailSender.createMimeMessage();
+//         MimeMessageHelper helper;
 
-        helper = new MimeMessageHelper(message, true); // true indicates
-                                                       // multipart message
-        helper.setSubject(subject);
-        helper.setTo(to);
-        helper.setText(body, true); // true indicates html
-        // continue using helper object for more functionalities like adding attachments, etc.
-        helper.setFrom("prenotazioni@centroleopardi.it");
+//         helper = new MimeMessageHelper(message, true); // true indicates
+//                                                        // multipart message
+//         helper.setSubject(subject);
+//         helper.setTo(to);
+//         helper.setText(body, true); // true indicates html
+//         // continue using helper object for more functionalities like adding attachments, etc.
+//         helper.setFrom("leomogia97@hotmail.it");
 
-        javaMailSender.send(message);
-    }
+//         javaMailSender.send(message);
+//     }
 
-}
+// }
