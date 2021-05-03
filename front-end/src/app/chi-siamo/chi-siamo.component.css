@@ -1,0 +1,84 @@
+.container {
+    margin-bottom: 10%;
+}
+
+p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+    text-align: justify;
+}
+
+h1 {
+    font-size: xx-large;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}
+
+.card-deck {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-text {
+    font-size: smaller;
+}
+
+h5 {
+    font-size: x-large;
+}
+
+.display-4 {
+    color: white;
+    font-size: xxx-large;
+}
+
+/* .carousel-inner {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    width: 300px !important;
+    height: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+@media all and (max-width: 500px) {
+    p {
+        font-family: "Times New Roman", Times, serif;
+        font-size: normal;
+        text-align: justify;
+    }
+
+    .container {
+        margin-bottom: 20%;
+    }
+    .card {
+        width: 250px;
+    }
+    .display-4 {
+        color: white;
+        font-size: xx-large;
+    }
+    img {
+        width: 260px;
+        height: 300px;
+    }
+    .carousel-inner > .carousel-item > img {
+        width:100% !important;
+        height: 400px !important;
+        /* max-height: 300px; */
+        object-fit: cover;
+      }
+    .carousel-inner {
+        /* display: block;
+        width: 300px !important;
+        height: 300px !important; */
+        margin-top: 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card-deck {
+        text-align: -webkit-center;
+    }
+}
