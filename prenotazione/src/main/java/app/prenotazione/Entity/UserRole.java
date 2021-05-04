@@ -28,5 +28,4 @@ public class UserRole
 	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
-
 }

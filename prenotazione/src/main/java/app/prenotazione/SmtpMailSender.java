@@ -2,7 +2,6 @@ package app.prenotazione;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -25,7 +24,6 @@ public class SmtpMailSender {
         helper.setText(body, true); // true indicates html
         // continue using helper object for more functionalities like adding attachments, etc.
         helper.setFrom("prenotazioni.app.padel@gmail.com");
-
         javaMailSender.send(message);
     }
 

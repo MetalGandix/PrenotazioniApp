@@ -1,8 +1,5 @@
 package app.prenotazione.Jwt;
-
-
 import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,14 +8,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import app.prenotazione.Entity.DAOUser;
 import app.prenotazione.Entity.UserRole;
 import app.prenotazione.Repository.UserDaoRepository;
 import app.prenotazione.Repository.UserRoleRepository;
 
-
-//@Service 
 @Service(value = "userService") //role based
 public class JwtUserDetailsService implements UserDetailsService {
 	
@@ -75,5 +69,4 @@ public class JwtUserDetailsService implements UserDetailsService {
 		userRoleRepository.save(newUserRole);
 		return saved;
 	}
-
 }

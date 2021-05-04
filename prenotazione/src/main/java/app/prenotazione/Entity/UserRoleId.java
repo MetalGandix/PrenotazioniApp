@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class UserRoleId implements Serializable
 {
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = -9008114105618095675L;
 
 	private long user_id;
@@ -37,5 +34,4 @@ public class UserRoleId implements Serializable
 	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
-
 }
