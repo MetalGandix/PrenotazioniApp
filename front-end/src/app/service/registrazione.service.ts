@@ -10,7 +10,7 @@ export class RegistrazioneService {
 
   constructor(private http: HttpClient) {}
 
-  private url = 'https://api-app.centroleopardi.it:8080/'
+  private url = 'http://localhost:8080/'
 
   public save(user: User) {
     return this.http.post<User>(this.url+"user", user);

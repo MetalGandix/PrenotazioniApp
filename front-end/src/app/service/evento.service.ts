@@ -16,7 +16,7 @@ export class EventoService {
   private url: string
 
   constructor(private http: HttpClient) {
-    this.url = 'https://api-app.centroleopardi.it:8080/';
+    this.url = 'http://localhost:8080/';
   }
 
   public findEvents(): Observable<Evento[]> {

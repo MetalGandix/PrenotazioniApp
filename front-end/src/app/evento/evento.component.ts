@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Evento } from '../class/evento';
-import { Immagine } from '../class/immagine';
 import { EventoService } from '../service/evento.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -31,25 +30,25 @@ export class EventoComponent implements OnInit {
     this.admin = sessionStorage.getItem("Role") === "ROLE_ADMIN"
   }
 
-  onSubmit() {
-    this.spinner.show();
-    const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post<Immagine>('https://api-app.centroleopardi.it:8080/image/upload', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          console.log(response)
-          this.service.saveEvents({event: this.evento, imageId: response.body.id}).subscribe()
-          this.message = 'Immagine caricata correttamente';
-        } else {
-          this.message = 'Immagine non caricata correttamente';
-        }
-      }
-    )
-    this.showMsg = true
-    this.spinner.hide();
+  // onSubmit() {
+  //   this.spinner.show();
+  //   const uploadImageData = new FormData();
+  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  //   this.httpClient.post<Immagine>('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
+  //     .subscribe((response) => {
+  //       if (response.status === 200) {
+  //         console.log(response)
+  //         this.service.saveEvents({event: this.evento, imageId: response.body.id}).subscribe()
+  //         this.message = 'Immagine caricata correttamente';
+  //       } else {
+  //         this.message = 'Immagine non caricata correttamente';
+  //       }
+  //     }
+  //   )
+  //   this.showMsg = true
+  //   this.spinner.hide();
 
-  }
+  // }
 
   public onFileChanged(event) {
     this.selectedFile = event.target.files[0];

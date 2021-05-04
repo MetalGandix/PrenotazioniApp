@@ -37,8 +37,6 @@ export class BachecaEventiComponent implements OnInit {
   array: any[];
 
   ngOnInit() {
-    this.spinner.show();
-
     this.refresha = window.history.state.refresha
     if (this.refresha == 1) {
       this.refresha++
@@ -55,21 +53,21 @@ export class BachecaEventiComponent implements OnInit {
     })
     console.log("Session storage", sessionStorage.getItem('username'))
 
-    this.service.findEvents().subscribe(p => {
-      this.eventi = p
-      this.eventi.forEach(e => {
-        this.httpClient.get("https://api-app.centroleopardi.it:8080/image/get/" + e.evento_immagine.name).subscribe(
-          res => {
-            this.retrieveResonse = res
-            this.base64Data = this.retrieveResonse.picByte;
-            e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
-            this.spinner.hide();
+    // this.service.findEvents().subscribe(p => {
+    //   this.eventi = p
+    //   this.eventi.forEach(e => {
+    //     this.httpClient.get("http://localhost:8080/image/get/" + e.evento_immagine.name).subscribe(
+    //       res => {
+    //         this.retrieveResonse = res
+    //         this.base64Data = this.retrieveResonse.picByte;
+    //         e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
+    //         this.spinner.hide();
 
-          }
-        )
-      })
-      console.log(this.eventi)
-    })
+    //       }
+    //     )
+    //   })
+    //   console.log(this.eventi)
+    // })
   }
 
   deleteEvento(id: number) {
