@@ -26,5 +26,4 @@ public class SmtpMailSender {
         helper.setFrom("prenotazioni.app.padel@gmail.com");
         javaMailSender.send(message);
     }
-
 }

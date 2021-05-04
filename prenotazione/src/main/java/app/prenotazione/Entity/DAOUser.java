@@ -30,6 +30,17 @@ public class DAOUser{
 	@Column
 	private boolean checkbox3;
 
+	@Column
+	private boolean isEnabled;
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
 	// role based
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLES", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
@@ -37,7 +48,7 @@ public class DAOUser{
 	private Set<Role> roles;
 
 	public long getId() {
-		return this.id;
+		return id;
 	}
 
 	public String getUsername() {
