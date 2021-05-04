@@ -2,6 +2,9 @@ package app.prenotazione.Controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.DAOUser;
 import app.prenotazione.Entity.Prenotazione;
 import app.prenotazione.Jwt.JwtUserDetailsService;
@@ -26,14 +30,15 @@ public class PrenotazioneController {
     private PrenotazioneRepository visitaRep;
 
     @Autowired
+    private SmtpMailSender smtpMailSender;
+
+    @Autowired
     private JwtUserDetailsService userRepository;
 
-    // Metodo per inviare al DB la visita con le info
-    // giacomoleopardi13@gmail.com
     @PostMapping("/visita")
-    String addVisit(Authentication a, @RequestBody Prenotazione visita){
-        // smtpMailSender.send("prenotazioni@centroleopardi.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
-        visita.setPrenotazioneVisitatore(prendiUtenteLoggato(a));
+    String addVisit(@RequestBody Prenotazione visita) throws MessagingException{
+        // smtpMailSender.send("prenotazioni.app.padel@gmail.com", "Prenotazione campo" , "Visita prenotata da " + visita.getPrenotazioneVisitatore().getlastname() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario());
+        //visita.setPrenotazioneVisitatore(prendiUtenteLoggato(a));
         visitaRep.save(visita);
         return "Visita correttamente inviata";
     }

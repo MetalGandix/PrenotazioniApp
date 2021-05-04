@@ -1,5 +1,8 @@
 package app.prenotazione.Controller;
 import java.util.List;
+
+import javax.mail.MessagingException;
+
 // import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-//import app.prenotazione.SmtpMailSender;
+import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.DAOUser;
 import app.prenotazione.Jwt.JwtUserDetailsService;
 
@@ -21,12 +24,12 @@ public class UserController {
     @Autowired
     private JwtUserDetailsService userRepository;
 
-    // @Autowired
-    // private SmtpMailSender smtpMailSender;
+    @Autowired
+    private SmtpMailSender smtpMailSender;
 
     @PostMapping("/user")
-    String addUser(@RequestBody DAOUser user){
-        //smtpMailSender.send(user.getUsername(), "Prova", "Conferma la tua email");
+    String addUser(@RequestBody DAOUser user) throws MessagingException{
+        smtpMailSender.send(user.getUsername(), "Prova", "Conferma la tua email");
         userRepository.save(user);
         return "ciao";
     }
