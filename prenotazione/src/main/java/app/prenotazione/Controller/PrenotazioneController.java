@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.Entity.PrenotazioneVisita;
+import app.prenotazione.Entity.Prenotazione;
 import app.prenotazione.Jwt.JwtUserDetailsService;
-import app.prenotazione.Repository.PrenotazioneVisitaRepository;
+import app.prenotazione.Repository.PrenotazioneRepository;
 
 @RestController
 @CrossOrigin
-public class PrenotazioneVisitaController {
+public class PrenotazioneController {
 
     @Autowired
-    private PrenotazioneVisitaRepository visitaRep;
+    private PrenotazioneRepository visitaRep;
 
     @Autowired
     private JwtUserDetailsService userRepository;
@@ -31,7 +31,7 @@ public class PrenotazioneVisitaController {
     // Metodo per inviare al DB la visita con le info
     // giacomoleopardi13@gmail.com
     @PostMapping("/visita")
-    String addVisit(Authentication a, @RequestBody PrenotazioneVisita visita){
+    String addVisit(Authentication a, @RequestBody Prenotazione visita){
         // smtpMailSender.send("prenotazioni@centroleopardi.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
         visita.setPrenotazioneVisitatore(prendiUtenteLoggato(a));
         visitaRep.save(visita);
@@ -46,27 +46,27 @@ public class PrenotazioneVisitaController {
 
     // Metodo per vedere TUTTE le visite (Deve essere accessibile solo all'admin)
     @GetMapping("/vediVisite")
-    public List<PrenotazioneVisita> getVisite(Authentication a) {
-        List<PrenotazioneVisita> prenotazione = visitaRep.findAll();
+    public List<Prenotazione> getVisite(Authentication a) {
+        List<Prenotazione> prenotazione = visitaRep.findAll();
         return prenotazione ;
     }
     // Metodo per vedere una singola visita dell'utente
     @GetMapping("/vediVisita/{id}")
-    public Optional<PrenotazioneVisita> vediVisitaSingola(Authentication a, @PathVariable Long id) {
-        return (Optional<PrenotazioneVisita>) visitaRep.findById(id);
+    public Optional<Prenotazione> vediVisitaSingola(Authentication a, @PathVariable Long id) {
+        return (Optional<Prenotazione>) visitaRep.findById(id);
     }
 
     @DeleteMapping("/cancellaVisita/{id}")
     public String deletePrenotazione(Authentication a, @PathVariable long id){
-        PrenotazioneVisita prenotazione = visitaRep.getOne(id);
+        Prenotazione prenotazione = visitaRep.getOne(id);
         visitaRep.delete(prenotazione);
         return "Prenotazione correttamente eliminata";
     }
 
     @GetMapping("/prendiVisitaUtente/{prenotazioneVisitatore}")
-    public List<PrenotazioneVisita> prendiVisitaDaUtente(Authentication a) {
+    public List<Prenotazione> prendiVisitaDaUtente(Authentication a) {
         UserDetails userPrincipal = (UserDetails)a.getPrincipal();
         DAOUser utente = userRepository.findUserByUsername(userPrincipal.getUsername());
-        return (List<PrenotazioneVisita>) visitaRep.findByPrenotazioneVisitatore(utente);
+        return (List<Prenotazione>) visitaRep.findByPrenotazioneVisitatore(utente);
     }
 }

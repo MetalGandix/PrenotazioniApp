@@ -16,7 +16,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "prenotazione")
-public class PrenotazioneVisita {
+public class Prenotazione {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
