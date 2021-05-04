@@ -17,7 +17,7 @@ import app.prenotazione.Repository.UserRoleRepository;
 public class JwtUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	private UserDaoRepository userDao;
+	private UserDaoRepository repository;
 
 	@Autowired
 	private UserRoleRepository userRoleRepository;
@@ -27,7 +27,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		DAOUser user = userDao.findByUsername(username);
+		DAOUser user = repository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
@@ -38,11 +38,11 @@ public class JwtUserDetailsService implements UserDetailsService {
 	}
 
 	public DAOUser findUserByUsername(String username){
-		return userDao.findByUsername(username);
+		return repository.findByUsername(username);
 	}
 
 	public List<DAOUser> findAllTheUser(){
-		return (List<DAOUser>) userDao.findAll();
+		return (List<DAOUser>) repository.findAll();
 	}
 
 	//role based
@@ -62,7 +62,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 		newUser.setCheckbox2(user.isCheckbox2());
 		newUser.setCheckbox3(user.isCheckbox3());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		DAOUser saved = userDao.save(newUser);
+		DAOUser saved = repository.save(newUser);
 		UserRole newUserRole = new UserRole();
 		newUserRole.setRole_id(1);
 		newUserRole.setUser_id(saved.getId());
