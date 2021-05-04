@@ -1,4 +1,4 @@
-package app.prenotazione.WebSecurityConfig;
+package app.prenotazione.Jwt;
 
 import java.io.Serializable;
 import java.util.Date;

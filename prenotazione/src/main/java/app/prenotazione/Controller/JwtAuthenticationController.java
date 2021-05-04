@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.prenotazione.WebSecurityConfig.JwtRequest;
-import app.prenotazione.WebSecurityConfig.JwtResponse;
-import app.prenotazione.WebSecurityConfig.JwtTokenUtil;
-import app.prenotazione.WebSecurityConfig.JwtUserDetailsService;
+import app.prenotazione.Jwt.JwtRequest;
+import app.prenotazione.Jwt.JwtResponse;
+import app.prenotazione.Jwt.JwtTokenUtil;
+import app.prenotazione.Jwt.JwtUserDetailsService;
 
 
 

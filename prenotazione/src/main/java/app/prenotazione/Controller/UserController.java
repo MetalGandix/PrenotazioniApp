@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 //import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.WebSecurityConfig.JwtUserDetailsService;
+import app.prenotazione.Jwt.JwtUserDetailsService;
 
 @RestController
 @CrossOrigin

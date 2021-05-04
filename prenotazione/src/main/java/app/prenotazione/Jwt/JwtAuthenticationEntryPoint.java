@@ -1,4 +1,4 @@
-package app.prenotazione.WebSecurityConfig;
+package app.prenotazione.Jwt;
 
 import java.io.IOException;
 import java.io.Serializable;

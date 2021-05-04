@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.prenotazione.Entity.DAOUser;
 import app.prenotazione.Entity.PrenotazioneVisita;
+import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.PrenotazioneVisitaRepository;
-import app.prenotazione.WebSecurityConfig.JwtUserDetailsService;
 
 @RestController
 @CrossOrigin
