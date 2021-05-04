@@ -13,9 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.Entity.UserDTO;
 import app.prenotazione.Entity.UserRole;
-import app.prenotazione.Repository.UserDao;
+import app.prenotazione.Repository.UserDaoRepository;
 import app.prenotazione.Repository.UserRoleRepository;
 
 
@@ -24,7 +23,7 @@ import app.prenotazione.Repository.UserRoleRepository;
 public class JwtUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	private UserDao userDao;
+	private UserDaoRepository userDao;
 
 	@Autowired
 	private UserRoleRepository userRoleRepository;
@@ -61,11 +60,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 		return authorities;
 	}
 
-	public DAOUser save(UserDTO user) {
+	public DAOUser save(DAOUser user) {
 		DAOUser newUser = new DAOUser();
 		newUser.setUsername(user.getUsername());
 		newUser.setName(user.getName());
-		newUser.setlastname(user.getLastname());
 		newUser.setCheckbox1(user.isCheckbox1());
 		newUser.setCheckbox2(user.isCheckbox2());
 		newUser.setCheckbox3(user.isCheckbox3());

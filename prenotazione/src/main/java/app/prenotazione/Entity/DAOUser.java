@@ -1,9 +1,5 @@
 package app.prenotazione.Entity;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,8 +11,8 @@ public class DAOUser{
 	private long id;
 	@Column
 	private String username;
+
 	@Column
-	@JsonIgnore
 	private String password;
 
 	@Column

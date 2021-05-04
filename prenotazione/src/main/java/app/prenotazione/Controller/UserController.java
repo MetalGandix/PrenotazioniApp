@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 //import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.Entity.UserDTO;
 import app.prenotazione.WebSecurityConfig.JwtUserDetailsService;
 
 @RestController
@@ -26,7 +25,7 @@ public class UserController {
     // private SmtpMailSender smtpMailSender;
 
     @PostMapping("/user")
-    String addUser(@RequestBody UserDTO user){
+    String addUser(@RequestBody DAOUser user){
         //smtpMailSender.send(user.getUsername(), "Prova", "Conferma la tua email");
         userRepository.save(user);
         return "ciao";
@@ -52,7 +51,7 @@ public class UserController {
     }
 
     @PutMapping("/cambiaUtente/{usernameid}")
-    public DAOUser cambiaUtente(Authentication a, @RequestBody UserDTO username) {
+    public DAOUser cambiaUtente(Authentication a, @RequestBody DAOUser username) {
         return (DAOUser) userRepository.save(username);
     }
 }
