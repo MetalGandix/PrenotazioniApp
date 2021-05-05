@@ -7,14 +7,9 @@
     <mat-nav-list>
       <a style="color: red;" mat-list-item routerLink="/home" routerLinkActive="active" (click)="onSidenavClose()"><mat-icon>home</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Home</i></span></a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/prenotazione-visita"><mat-icon>event</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Prenota Campo da Padel/Tennis</i></span></a>
-      <mat-divider></mat-divider>
       <a mat-list-item routerLink="/socio"><mat-icon>edit</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Diventa un Socio</i></span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/tariffa"><mat-icon>euro_symbol</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Scopri le nostre tariffe</i></span></a>
-      <mat-divider></mat-divider>
-
-      <a *ngIf="!visitor && !admin" style="color: blue;" mat-list-item routerLink="/login"><mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Area riservata</i></span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/bacheca-eventi"><mat-icon>event_note</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Bacheca Eventi</i></span></a>
       <mat-divider></mat-divider>
@@ -23,6 +18,10 @@
       <a mat-list-item routerLink="/contatti"><mat-icon>call</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Contatti</i></span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/mappa"><mat-icon>location_on</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Percorso</i></span></a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!visitor && !admin" style="color: blue;" mat-list-item routerLink="/login"><mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Area riservata</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/prenotazione-visita"><mat-icon>event</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Prenota Campo da Padel/Tennis</i></span></a>
       <mat-divider></mat-divider>
       <!-- <a mat-list-item routerLink="/poesia"><mat-icon>queue_music</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Testi del Percorso Leopardiano</i></span></a> -->
       <mat-divider></mat-divider>
