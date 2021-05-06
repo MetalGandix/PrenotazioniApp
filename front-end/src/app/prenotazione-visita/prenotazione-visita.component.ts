@@ -25,7 +25,7 @@ export class PrenotazioneVisitaComponent implements OnInit {
   input: boolean = false
 
   ngOnInit() {
-    this.visitor = sessionStorage.getItem("Role") === "ROLE_VISITATORE"
+    this.visitor = sessionStorage.getItem("Role") === "ROLE_USER"
   }
 
   onSubmit() {

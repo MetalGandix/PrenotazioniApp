@@ -33,9 +33,10 @@ export class SidenavComponent implements OnInit{
   constructor(private breakpointObserver: BreakpointObserver, private gestioneUtente: GestioneUtenteService, private auth: AuthenticationService) {}
 
   ngOnInit(){
+    // debugger
     if(sessionStorage.getItem("Role") === "ROLE_ADMIN"){
       this.admin = true
-    }else if(sessionStorage.getItem("Role") === "ROLE_VISITATORE"){
+    }else if(sessionStorage.getItem("Role") === "ROLE_USER"){
       this.visitor = true
     }
     this.session = sessionStorage.getItem('username')

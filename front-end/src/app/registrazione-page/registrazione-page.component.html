@@ -133,7 +133,7 @@
         </div> -->
 
         <br>
-        <button type="submit" class="btn btn-lg btn-google btn-block text-uppercase" [disabled]="!userForm.form.valid"
+        <button type="submit" class="btn btn-lg btn-google btn-block text-uppercase" [disabled]="!userForm.form.valid || userExist"
            data-toggle="modal" data-target="#registrazione"><i _ngcontent-ket-c63="" class="fab fa-google mr-2"></i>Registrati</button>
           <hr _ngcontent-qdw-c63="" class="my-4">
         <!-- Modal -->
