@@ -86,12 +86,12 @@ public class UserController {
 
     @PutMapping("/cambiaUtente/{usernameid}")
     public DAOUser cambiaUtente(Authentication a, @RequestBody DAOUser username) throws MessagingException {
-        ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(username));
-        confirmationTokenRepository.save(confirmationToken);
-        String stringaMail = "Per confermare l'account, per favore clicca " 
-        + "<a href=\"" + "http://localhost:8080/confirm-account?token="
-        +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
-        smtpMailSender.send(username.getUsername(), "Conferma la tua email", stringaMail);
+        // ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(username));
+        // confirmationTokenRepository.save(confirmationToken);
+        // String stringaMail = "Per confermare l'account, per favore clicca " 
+        // + "<a href=\"" + "http://localhost:8080/confirm-account?token="
+        // +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
+        // smtpMailSender.send(username.getUsername(), "Conferma la tua email", stringaMail);
         return (DAOUser) userRepository.save(username);
     }
 }
