@@ -18,11 +18,16 @@ export class PrenotazioneCampoComponent implements OnInit {
    
 
     visitor: boolean = false
+    admin: boolean = false
     
 
   ngOnInit(): void {
     
-    this.visitor = sessionStorage.getItem("Role") === "ROLE_USER"
+    if(sessionStorage.getItem("Role") === "ROLE_ADMIN"){
+      this.admin = true
+    }else if(sessionStorage.getItem("Role") === "ROLE_USER"){
+      this.visitor = true
+    }
   }
 
 }
