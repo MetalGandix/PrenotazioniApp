@@ -1,0 +1,43 @@
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .container {
+    margin-top: 20px;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+h3 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+h4 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+
+@media all and (max-width: 500px) {
+    .h1 {
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        font-size: large;
+    }
+    .container {
+        margin-top: 20px;
+        margin-bottom: 10%;
+    }
+    h3 {
+        font-family: "Times New Roman", Times, serif;
+    }
+    h4 {
+        font-family: "Times New Roman", Times, serif;
+    }
+}
