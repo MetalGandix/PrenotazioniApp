@@ -17,7 +17,7 @@ import { BachecaEventiComponent } from './bacheca-eventi/bacheca-eventi.componen
 import { SocioComponent } from './socio/socio.component';
 import { VediModuliSocioComponent } from './vedi-moduli-socio/vedi-moduli-socio.component';
 import { DataPrivacyComponent } from './data-privacy/data-privacy.component';
-
+import{ PrenotazioneCampoComponent } from './prenotazione-campo/prenotazione-campo.component'; 
 
 
 const routes: Routes = [
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'registrazione', component: RegistrazionePageComponent },
   { path: 'prenotazione-visita', component: PrenotazioneVisitaComponent },
+  { path: 'prenotazione-campo', component: PrenotazioneCampoComponent },
   { path: 'scelta-utente', component: SceltaUtenteComponent },
   { path: 'area-riservata', component: AreaRiservataComponent },
   { path: 'tariffa', component: TariffaComponent },

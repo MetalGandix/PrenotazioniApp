@@ -1,0 +1,24 @@
+<div class="container">
+    <div *ngIf="!visitor">
+        <br>
+        <h1 class="h1">Per prenotare il campo devi effettuare il login</h1>
+        <br>
+        <button routerLink="/login" class="btn btn-success"
+            style="display:block; margin-left: auto; margin-right: auto;">Vai al login</button>
+    </div>
+
+    <div *ngIf="visitor" class="container" style="margin-top: 20px; margin-bottom: 50px;">
+        <div class="row">
+
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Prenota l'orario e il campo che preferisci.</b></h5>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
