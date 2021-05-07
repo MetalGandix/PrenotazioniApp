@@ -58,6 +58,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 		DAOUser newUser = new DAOUser();
 		newUser.setUsername(user.getUsername());
 		newUser.setName(user.getName());
+		newUser.setlastname(user.getlastname());
 		newUser.setCheckbox1(user.isCheckbox1());
 		newUser.setCheckbox2(user.isCheckbox2());
 		newUser.setCheckbox3(user.isCheckbox3());

@@ -87,7 +87,7 @@ public class DAOUser{
 		return lastname;
 	}
 
-	public void setlastname(final String lastname) {
+	public void setlastname(String lastname) {
 		this.lastname = lastname;
 	}
 
