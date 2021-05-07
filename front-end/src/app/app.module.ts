@@ -41,6 +41,7 @@ import { SocioComponent } from './socio/socio.component';
 import { VediModuliSocioComponent } from './vedi-moduli-socio/vedi-moduli-socio.component';
 import { DataPrivacyComponent } from './data-privacy/data-privacy.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PrenotazioneCampoComponent } from './prenotazione-campo/prenotazione-campo.component';
 
 
 
@@ -67,6 +68,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SocioComponent,
     VediModuliSocioComponent,
     DataPrivacyComponent,
+    PrenotazioneCampoComponent,
   ],
   imports: [
     HttpClientModule, 

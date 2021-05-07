@@ -1,16 +1,16 @@
 <div class="container">
     <div *ngIf="!visitor">
         <br>
-        <h1 class="h1">Per prenotare la visita devi effettuare il login</h1>
+        <h1 class="h1" style="font-size: 1.5rem;">Per prenotare la Visita devi effettuare il login</h1>
         <br>
-        <button routerLink="/login" class="btn btn-success"
+        <button routerLink="/login" class="btn btn-lg btn-primary btn-block text-uppercase"
             style="display:block; margin-left: auto; margin-right: auto;">Vai al login</button>
     </div>
 
     <div *ngIf="visitor" class="container" style="margin-top: 20px; margin-bottom: 50px;">
         <div class="row">
             <div style="margin-bottom: 20px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
-                <h1 style="font-size: 30px;">Prenota il tuo Tour per il magnifico percorso leopardiano</h1>
+                <h1>Prenota il tuo Tour per il magnifico percorso leopardiano</h1>
             </div>
         </div>
         <div class="row">
