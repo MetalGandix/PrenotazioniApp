@@ -18,6 +18,7 @@ export class User{
     public password: string,
     public name: string,
     public lastname: string,
+    public cellulare: string,
     public checkbox1: boolean,
     public checkbox2: boolean,
     public checkbox3: boolean,

@@ -22,6 +22,9 @@ public class DAOUser{
 	private String lastname;
 
 	@Column
+	private String cellulare;
+
+	@Column
 	private boolean checkbox1;
 
 	@Column
@@ -89,6 +92,14 @@ public class DAOUser{
 
 	public void setlastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public String getCellulare() {
+		return cellulare;
+	}
+
+	public void setCellulare(String cellulare) {
+		this.cellulare = cellulare;
 	}
 
 	public boolean isCheckbox1() {

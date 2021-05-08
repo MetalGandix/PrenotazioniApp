@@ -77,6 +77,22 @@
           </div>
         </div>
 
+        <div class="form-label-group">
+          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Cellulare</p>
+          <!-- <label for="name">Nome</label> -->
+          <input type="text" [(ngModel)]="user.cellulare" required minlength="6" class="form-control" id="cellulare" name="cellulare"
+            placeholder="Enter your phone" required #cellulare="ngModel">
+          <div *ngIf="cellulare.invalid && (cellulare.dirty || cellulare.touched)" class="alert alert-danger">
+            <div *ngIf="cellulare.errors.required">
+              Devi scrivere Il cellulare.
+            </div>
+            <div *ngIf="cellulare.errors.minlength">
+              Il cellulare deve essere lungo almeno 6 numeri.
+            </div>
+          </div>
+        </div>
+        <br>
+
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="form-check">
             <input type="checkbox" #checkbox1="ngModel" class="form-check-input" id="exampleCheck1" name="check1"
