@@ -1,11 +1,13 @@
 package app.prenotazione.Entity;
+import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "user")
-public class DAOUser{
-
+public class DAOUser implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

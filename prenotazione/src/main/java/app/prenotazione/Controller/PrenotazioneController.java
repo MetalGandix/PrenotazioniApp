@@ -37,7 +37,7 @@ public class PrenotazioneController {
 
     @PostMapping("/visita")
     String addVisit(Authentication a, @RequestBody Prenotazione visita) throws MessagingException{
-        smtpMailSender.send("prenotazioni@centroleopardi.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
+        smtpMailSender.send("prenotazioni.app.padel@gmail.com", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
         visita.setPrenotazioneVisitatore(prendiUtenteLoggato(a));
         visitaRep.save(visita);
         return "Visita correttamente inviata";

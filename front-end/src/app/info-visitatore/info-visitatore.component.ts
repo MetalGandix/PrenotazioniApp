@@ -17,7 +17,7 @@ export class InfoVisitatoreComponent implements OnInit {
   visita: Prenotazione[]
 
   ngOnInit(){
-  this.visitor = sessionStorage.getItem("Role") === "ROLE_VISITATORE"
+  this.visitor = sessionStorage.getItem("Role") === "ROLE_USER"
   this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => 
     {
       this.utente = data
