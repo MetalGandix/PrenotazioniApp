@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import app.prenotazione.Entity.DAOUser;
 
 @Repository
-public interface UserDaoRepository extends JpaRepository<DAOUser, Integer> {
+public interface UserDaoRepository extends JpaRepository<DAOUser, Long> {
 	
 	DAOUser findByUsername(String username);
 }

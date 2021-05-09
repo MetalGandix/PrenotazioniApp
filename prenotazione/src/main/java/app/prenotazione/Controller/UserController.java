@@ -1,11 +1,15 @@
 package app.prenotazione.Controller;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,8 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.ConfirmationToken;
 import app.prenotazione.Entity.DAOUser;
+import app.prenotazione.Entity.Role;
 import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.ConfirmationTokenRepository;
+import app.prenotazione.Repository.RoleRepository;
 import app.prenotazione.Repository.UserDaoRepository;
 
 @RestController
@@ -29,7 +35,13 @@ public class UserController {
     private JwtUserDetailsService userRepository;
 
     @Autowired
+    private UserDaoRepository userRepositoryAutomated;
+
+    @Autowired
     private SmtpMailSender smtpMailSender;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private UserDaoRepository repositoryUtente;
@@ -93,5 +105,31 @@ public class UserController {
         // +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
         // smtpMailSender.send(username.getUsername(), "Conferma la tua email", stringaMail);
         return (DAOUser) userRepository.save(username);
+    }
+
+    @DeleteMapping("/eliminaUtente/{id}")
+    public String eliminaUtente(Authentication a, @PathVariable long id){
+        DAOUser user = userRepositoryAutomated.getOne(id);
+        ConfirmationToken tokenToDelete = confirmationTokenRepository.findByUser(user);
+        confirmationTokenRepository.delete(tokenToDelete);
+        userRepositoryAutomated.delete(user);
+        return "Utente eliminato correttamente";
+    }
+
+    @PatchMapping("/nominaAdmin/{id}")
+    public String nominaAdmin(Authentication a, @PathVariable long id){
+        Optional<DAOUser> user = userRepositoryAutomated.findById(id);
+        if(user.isPresent()){
+            DAOUser userRuolo = user.get();
+            Role ruolo = roleRepository.findById(2);
+            HashSet<Role> roles = new HashSet<Role>();
+            roles.add(ruolo);
+            userRuolo.setRoles(roles);
+            repositoryUtente.save(userRuolo);
+            return "Utente aggiornato";
+        }
+        else{
+            return "Utente non aggiornato";
+        }
     }
 }
