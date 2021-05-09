@@ -27,21 +27,35 @@ public class Prenotazione {
     private String orario;
 
     @Column
-    private int numCampo;
+    private int numcomponenti;
 
     @Column
-    private boolean illuminazione;
-    
+    private String nome;
+
     @Column
-    private boolean prenotato;
+    private String cognome;
+
+    @Column
+    private String professione;
+
+    @Column
+    private String cellulare;
+
+    @Column
+    private String paese;
+
+    @Column
+    private String citta;
 
     @Column
     private String infoAggiuntiva;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_USERNAME", referencedColumnName="username")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private DAOUser prenotazioneVisitatore;
+
 
     public long getId() {
         return id;
@@ -67,12 +81,68 @@ public class Prenotazione {
         this.orario = orario;
     }
 
+    public int getNumcomponenti() {
+        return numcomponenti;
+    }
+
+    public void setNumcomponenti(int numcomponenti) {
+        this.numcomponenti = numcomponenti;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public String getCellulare() {
+        return cellulare;
+    }
+
+    public void setCellulare(String cellulare) {
+        this.cellulare = cellulare;
+    }
+
+    public String getPaese() {
+        return paese;
+    }
+
+    public void setPaese(String paese) {
+        this.paese = paese;
+    }
+
+    public String getCitta() {
+        return citta;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
     public String getInfoAggiuntiva() {
         return infoAggiuntiva;
     }
 
     public void setInfoAggiuntiva(String infoAggiuntiva) {
         this.infoAggiuntiva = infoAggiuntiva;
+    }
+
+    public String getProfessione() {
+        return professione;
+    }
+
+    public void setProfessione(String professione) {
+        this.professione = professione;
     }
 
     public DAOUser getPrenotazioneVisitatore() {
