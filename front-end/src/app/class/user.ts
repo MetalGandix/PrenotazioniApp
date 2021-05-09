@@ -6,8 +6,8 @@ export class User {
     name: string
     lastname: string
     cellulare:string
-    checkbox1: boolean
-    checkbox2: boolean
+    privacy_accett: boolean
+    is_socio: boolean
     checkbox3: boolean
     enabled: boolean
     roles: Role

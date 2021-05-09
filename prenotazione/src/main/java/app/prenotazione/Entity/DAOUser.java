@@ -25,10 +25,10 @@ public class DAOUser{
 	private String cellulare;
 
 	@Column
-	private boolean checkbox1;
+	private boolean privacy_accett;
 
 	@Column
-	private boolean checkbox2;
+	private boolean is_socio;
 
 	@Column
 	private boolean checkbox3;
@@ -102,20 +102,20 @@ public class DAOUser{
 		this.cellulare = cellulare;
 	}
 
-	public boolean isCheckbox1() {
-		return checkbox1;
+	public boolean isPrivacy_accett() {
+		return privacy_accett;
 	}
 
-	public void setCheckbox1(boolean checkbox1) {
-		this.checkbox1 = checkbox1;
+	public void setPrivacy_accett(boolean privacy_accett) {
+		this.privacy_accett = privacy_accett;
 	}
 
-	public boolean isCheckbox2() {
-		return checkbox2;
+	public boolean isSocio() {
+		return is_socio;
 	}
 
-	public void setCheckbox2(boolean checkbox2) {
-		this.checkbox2 = checkbox2;
+	public void setSocio(boolean is_socio) {
+		this.is_socio = is_socio;
 	}
 
 	public boolean isCheckbox3() {
