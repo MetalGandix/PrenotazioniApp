@@ -65,7 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate","/user","/visita","/confirm-account", "/existUser/{username}", "/vediUtenti/{username}").permitAll()
-				.antMatchers("/vediVisite").access("hasRole('ROLE_ADMIN')")
+				.antMatchers("/vediVisite","/changeUserDetails").access("hasRole('ROLE_ADMIN')")
+				.antMatchers("/vediVisite","/changeUserDetails").access("hasRole('ROLE_USER')")
 				//.antMatchers("/visita").access("hasRole('ROLE_VISITATORE')")
 				/*.permitAll().antMatchers(HttpMethod.OPTIONS, "/**")
 				.permitAll().*/

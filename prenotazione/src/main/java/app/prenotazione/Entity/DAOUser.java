@@ -3,11 +3,14 @@ import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 @Entity
 @Table(name = "user")
 public class DAOUser implements Serializable{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -49,7 +52,8 @@ public class DAOUser implements Serializable{
 	// role based
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLES", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
-			@JoinColumn(name = "ROLE_ID") })
+	@JoinColumn(name = "ROLE_ID") })
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Role> roles;
 
 	public long getId() {

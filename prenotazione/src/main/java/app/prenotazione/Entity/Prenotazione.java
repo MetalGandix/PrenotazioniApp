@@ -52,7 +52,7 @@ public class Prenotazione {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "USER_USERNAME", referencedColumnName="username")
+    @JoinColumn(name = "USER_ID", referencedColumnName="id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private DAOUser prenotazioneVisitatore;
 

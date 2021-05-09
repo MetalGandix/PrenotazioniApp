@@ -28,8 +28,10 @@ export class GestioneUtenteService {
     return this.http.get<User>(this.url + "vediUtenti/" + email);
   }
   
-  
-  
+  public changeUserDetail(user: User){
+    return this.http.put<User>(this.url + "changeUserDetails", user)
+  }
+
   public deleteUser(id: number){
     return this.http.delete<User>(this.url + "eliminaUtente/"+id);
   }
@@ -37,5 +39,7 @@ export class GestioneUtenteService {
   public changeRole(id: number){
     return this.http.patch<User>(this.url + "nominaAdmin/"+id, {});
   }
+
+
 
 }

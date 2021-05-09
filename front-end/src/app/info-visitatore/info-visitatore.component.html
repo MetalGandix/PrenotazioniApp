@@ -1,4 +1,4 @@
-<div *ngIf="visitor" class="container">
+<div class="container">
 
     <h1>La tabella qua sotto indica i dati del tuo account</h1>
 
@@ -9,7 +9,7 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>Email: </th>
-                        <td>{{ utente.username }} </td>
+                        <td>{{ utente.username }} <input placeholder="Modifica" [(ngModel)]="utente.username"></td>
                     </tr>
                     <tr>
                         <th>Nome: </th>
@@ -27,6 +27,7 @@
                         <th>Socio: </th>
                         <td>{{ utente.is_socio }} </td>
                     </tr>
+                    <td><button (click)="setChangeUserDetail()">Click</button></td>
                 </table>
             </div>
         </div>

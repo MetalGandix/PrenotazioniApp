@@ -17,6 +17,6 @@ export class RegistrazioneService {
   }
 
   public existUser(username: string) {
-    return this.http.get<boolean>(this.url+"existUser/"+username);
+    return this.http.get<boolean>(this.url+"existUser/"+ username);
   }
 }

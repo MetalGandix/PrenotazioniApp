@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +59,17 @@ public class UserController {
         +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
         smtpMailSender.send(user.getUsername(), "Conferma la tua email", stringaMail);
         return "Mail mandata";
+    }
+
+    @PutMapping("/changeUserDetails")
+    public String changeUserDetails(Authentication a, @RequestBody DAOUser user) {
+        // repositoryUtente.changeUsername(user.getUsername());
+        UserDetails userPrincipal= (UserDetails)a.getPrincipal();
+        DAOUser utente;
+        utente = repositoryUtente.findByUsername(userPrincipal.getUsername());
+        utente = user;
+        repositoryUtente.save(utente);
+        return "CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
     }
 
     @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})

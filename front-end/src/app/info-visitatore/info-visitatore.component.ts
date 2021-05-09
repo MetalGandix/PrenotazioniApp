@@ -12,13 +12,14 @@ import { PrenotazioneService } from '../service/prenotazione.service';
 export class InfoVisitatoreComponent implements OnInit {
 
   visitor: boolean = false
-  constructor(private gestioneUtente: GestioneUtenteService, private service: PrenotazioneService) { }
-  utente: User[]
+  constructor(private gestioneUtente: GestioneUtenteService, private service: PrenotazioneService) {
+   }
+  utente: User
   visita: Prenotazione[]
+  user: User
 
   ngOnInit(){
-  this.visitor = sessionStorage.getItem("Role") === "ROLE_USER"
-  this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => 
+  this.gestioneUtente.findUtenteSingoloLogin(sessionStorage.getItem('username')).subscribe(data => 
     {
       this.utente = data
       console.log(this.utente)
@@ -27,5 +28,10 @@ export class InfoVisitatoreComponent implements OnInit {
   this.service.prendiVisitaDalVisitatore(sessionStorage.getItem('username')).subscribe(p=>{
     this.visita = p
   })
+  }
+
+
+  setChangeUserDetail(){
+    this.gestioneUtente.changeUserDetail(this.utente).subscribe()
   }
 }
