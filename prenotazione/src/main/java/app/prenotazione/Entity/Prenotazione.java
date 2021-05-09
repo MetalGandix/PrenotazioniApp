@@ -61,10 +61,6 @@ public class Prenotazione {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public LocalDate getData() {
         return data;
     }

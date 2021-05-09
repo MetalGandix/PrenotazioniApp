@@ -30,8 +30,10 @@ export class PrenotazioneVisitaComponent implements OnInit {
   }
 
   onSubmit() {
+    // debugger
     this.spinner.show();
-    this.service.save(this.prenotazione).subscribe()
+    this.service.save(this.prenotazione).subscribe(a => console.log(this.prenotazione)
+    )
     this.logRicevuto = true
     this.spinner.hide();
   }

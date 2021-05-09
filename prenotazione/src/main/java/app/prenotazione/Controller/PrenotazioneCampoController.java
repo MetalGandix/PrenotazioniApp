@@ -37,33 +37,33 @@ public class PrenotazioneCampoController {
     @Autowired
     private JwtUserDetailsService userRepository;
 
-    @PostMapping("/visita")
-    String addVisit(Authentication a, @RequestBody PrenotazioneCampo visita) throws MessagingException{
-        smtpMailSender.send("prenotazioni.app.padel@gmail.com", "Prenotazione campo" , "Visita prenotata da " + visita.getPrenotazioneCampo().getlastname() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario());
-        visita.setPrenotazioneCampo(prendiUtenteLoggato(a));
-        campoRep.save(visita);
+    @PostMapping("/prenotazioneCampo")
+    String addCampo(Authentication a, @RequestBody PrenotazioneCampo campo) throws MessagingException{
+        smtpMailSender.send("prenotazioni.app.padel@gmail.com", "Prenotazione campo" , "Visita prenotata da " + campo.getPrenotazioneCampo().getlastname() + " \nper il giorno: " + campo.getData() + " alle ore: " + campo.getOrario());
+        campo.setPrenotazioneCampo(prendiUtenteLoggatoxCampi(a));
+        campoRep.save(campo);
         return "Visita correttamente inviata";
     }
 
-    @GetMapping("/prendiUtenteLoggato/{username}")
-    public DAOUser prendiUtenteLoggato(Authentication a) {
+    @GetMapping("/prendiUtenteLoggatoxCampi/{username}")
+    public DAOUser prendiUtenteLoggatoxCampi(Authentication a) {
         UserDetails userPrincipal = (UserDetails)a.getPrincipal();
         return (DAOUser) userRepository.findUserByUsername(userPrincipal.getUsername());
     }
 
-    // Metodo per vedere TUTTE le visite (Deve essere accessibile solo all'admin)
-    @GetMapping("/vediCampi")
+    // Metodo per vedere TUTTE le prenotazioni campi degli utenti (Deve essere accessibile solo all'admin)
+    @GetMapping("/vediprenotazioniCampi")
     public List<PrenotazioneCampo> getVisite(Authentication a) {
         List<PrenotazioneCampo> prenotazione = campoRep.findAll();
         return prenotazione ;
     }
-    // Metodo per vedere una singola visita dell'utente
-    @GetMapping("/vediCampo/{id}")
-    public Optional<PrenotazioneCampo> vediVisitaSingola(Authentication a, @PathVariable Long id) {
+    // Metodo per vedere una singola prenotazione dell'utente
+    @GetMapping("/vediPrenotazioneCampo/{id}")
+    public Optional<PrenotazioneCampo> vediPrenotazioniCampiUtente(Authentication a, @PathVariable Long id) {
         return (Optional<PrenotazioneCampo>) campoRep.findById(id);
     }
 
-    @DeleteMapping("/cancellaCampo/{id}")
+    @DeleteMapping("/cancellaPrenotazioneCampo/{id}")
     public String deletePrenotazione(Authentication a, @PathVariable long id){
         PrenotazioneCampo prenotazione = campoRep.getOne(id);
         campoRep.delete(prenotazione);
