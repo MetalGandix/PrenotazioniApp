@@ -9,25 +9,30 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>Email: </th>
-                        <td>{{ utente.username }} <input placeholder="Modifica" [(ngModel)]="utente.username"></td>
+                        <td>{{ utente.username }} </td>
+                        <!-- <td><button class="" (click)="setChangeUserDetail()">Modifica</button>&nbsp; &nbsp;<input placeholder="Modifica" [(ngModel)]="utente.username"></td> -->
+
                     </tr>
                     <tr>
                         <th>Nome: </th>
                         <td>{{ utente.name }} </td>
+                       
                     </tr>
                     <tr>
                         <th>Cognome: </th>
                         <td>{{ utente.lastname }} </td>
+                        
                     </tr>
                     <tr>
                         <th>Cellulare: </th>
                         <td>{{ utente.cellulare }} </td>
+                        <td><button class="" (click)="setChangeUserDetail()">Modifica</button>&nbsp; &nbsp;<input placeholder="Modifica" [(ngModel)]="utente.cellulare"></td>
                     </tr>
                     <tr>
                         <th>Socio: </th>
                         <td>{{ utente.is_socio }} </td>
                     </tr>
-                    <td><button (click)="setChangeUserDetail()">Click</button></td>
+                    <!-- <td><button class="" (click)="setChangeUserDetail()">Salva Cambiamenti</button></td> -->
                 </table>
             </div>
         </div>
