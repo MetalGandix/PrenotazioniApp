@@ -26,7 +26,7 @@ export class SceltaUtenteComponent implements OnInit {
     }
     if(sessionStorage.getItem("Role") === "ROLE_ADMIN"){
     this.admin = true
-    }else if(sessionStorage.getItem("Role") === "ROLE_VISITATORE"){
+    }else if(sessionStorage.getItem("Role") === "ROLE_USER"){
     this.visitor = true
     }
     this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => 
