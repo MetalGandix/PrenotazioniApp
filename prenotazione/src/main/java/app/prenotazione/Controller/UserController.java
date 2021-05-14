@@ -129,13 +129,16 @@ public class UserController {
     }
 
     @PutMapping("/resetPassword/{username}")
-    public String changePassword(@PathVariable String username){
+    public String changePassword(@PathVariable String username) throws MessagingException{
         if(username == null){
             return "Non esiste nessun utente con questo username";
         }else{
         DAOUser utente;
         utente = userRepository.findUserByUsername(username);
-        repositoryUtente.save(utente);
+        ConfirmationToken confirmationToken = confirmationTokenRepository.findByUserId(utente.getId());
+        String stringaMail = "Per ripristinare la password dell'account, per favore clicca " 
+        + "<a href=\"" + "http://localhost:4200/forgot-password" + "\">" + "qua" + "</a>";
+        smtpMailSender.send(utente.getUsername(), "Conferma la tua email", stringaMail);
         return "Utente aggiornato";
         }
     }

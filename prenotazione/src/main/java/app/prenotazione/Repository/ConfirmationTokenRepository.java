@@ -7,4 +7,5 @@ import app.prenotazione.Entity.DAOUser;
 public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationToken, Long>{
     ConfirmationToken findByConfirmationToken(String confirmationToken);
     ConfirmationToken findByUser(DAOUser id);
+    ConfirmationToken findByUserId(long id);
 }
