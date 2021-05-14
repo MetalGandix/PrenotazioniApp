@@ -16,6 +16,7 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   this.router.params.subscribe(r=> {
     let token = r["token"]
+    console.log(token)
   })
   }
  resetPassword(){
