@@ -137,7 +137,7 @@ public class UserController {
         utente = userRepository.findUserByUsername(username);
         ConfirmationToken confirmationToken = confirmationTokenRepository.findByUserId(utente.getId());
         String stringaMail = "Per ripristinare la password dell'account, per favore clicca " 
-        + "<a href=\"" + "http://localhost:4200/forgot-password/" + confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
+        + "<a href=\"" + "http://localhost:4200/forgot-password/token/" + confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
         smtpMailSender.send(utente.getUsername(), "Conferma la tua email", stringaMail);
         return confirmationToken.getConfirmationToken();
         }
