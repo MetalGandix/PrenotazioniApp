@@ -40,7 +40,7 @@ export class GestioneUtenteService {
     return this.http.patch<User>(this.url + "nominaAdmin/"+id, {});
   }
   public resetPassword(username: string){
-    return this.http.post(this.url + "resetPassword/" + username,{});
+    return this.http.put(this.url + "resetPassword/" + username,{});
 
 
   }
