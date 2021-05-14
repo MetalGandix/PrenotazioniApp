@@ -18,6 +18,7 @@ import { SocioComponent } from './socio/socio.component';
 import { VediModuliSocioComponent } from './vedi-moduli-socio/vedi-moduli-socio.component';
 import { DataPrivacyComponent } from './data-privacy/data-privacy.component';
 import{ PrenotazioneCampoComponent } from './prenotazione-campo/prenotazione-campo.component'; 
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'socio', component: SocioComponent},
   { path: 'vedi-moduli-socio', component: VediModuliSocioComponent},
   { path: 'data-privacy', component: DataPrivacyComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent},
 ];
 
 @NgModule({

@@ -39,6 +39,11 @@ export class GestioneUtenteService {
   public changeRole(id: number){
     return this.http.patch<User>(this.url + "nominaAdmin/"+id, {});
   }
+  public resetPassword(username: string){
+    return this.http.post(this.url + "resetPassword/" + username,{});
+
+
+  }
 
 
 
