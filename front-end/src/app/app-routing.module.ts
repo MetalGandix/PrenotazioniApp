@@ -41,6 +41,7 @@ const routes: Routes = [
   { path: 'socio', component: SocioComponent},
   { path: 'vedi-moduli-socio', component: VediModuliSocioComponent},
   { path: 'data-privacy', component: DataPrivacyComponent},
+  { path: 'forgot-password/', component: ForgotPasswordComponent},
   { path: 'forgot-password/token/:tokenid', component: ForgotPasswordComponent},
 ];
 
