@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <th>Socio: </th>
-                        <td>{{ utente.is_socio }} </td>
+                        <td>{{ socio }} </td>
                     </tr>
                     <!-- <td><button class="" (click)="setChangeUserDetail()">Salva Cambiamenti</button></td> -->
                 </table>
@@ -45,10 +45,10 @@
         <div class="overflow-auto">
             <!--spostato lo style nel CSS -->
             <div>
-                <div >
+                <div>
                     <table class="table">
                         <thead class="thead-dark">
-                            <tr >
+                            <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Orario</th>
@@ -76,32 +76,36 @@
                                 <td name="paese">{{ p.paese }}</td>
                                 <td name="citta">{{ p.citta }}</td>
                                 <td name="infoAggiuntiva">{{ p.infoAggiuntiva }}</td>
-                                <td><button data-target="#exampleModal" data-toggle="modal"(click)="takeId(p.id)">Cancella Visita</button>&nbsp; &nbsp;</td>
+                                <td><button data-target="#exampleModal" data-toggle="modal"
+                                        (click)="takeId(p.id)">Cancella Visita</button>&nbsp; &nbsp;</td>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Elimina Vista</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Vupoi eliminare la visita {{p.id}}?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    (click)="cancellaVisita()">Elimina Visita</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
+
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Eliminare la visita?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" (click)="cancellaVisita()">Elimina Visita</button>
-                    </div>
                 </div>
             </div>
         </div>

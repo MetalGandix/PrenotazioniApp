@@ -19,15 +19,21 @@ export class InfoVisitatoreComponent implements OnInit {
   user: User
   dialog: boolean = false
   id: number
+  socio: string
 
   ngOnInit() {
     this.gestioneUtente.findUtenteSingoloLogin(sessionStorage.getItem('username')).subscribe(data => {
       this.utente = data
+      this.socio="SI"
+      if(!this.utente.is_socio)
+      this.socio="No"
+      
       console.log(this.utente)
     })
     console.log("Session storage", sessionStorage.getItem('username'))
     this.service.prendiVisitaDalVisitatore(sessionStorage.getItem('username')).subscribe(p => {
       this.visita = p
+
     })
   }
 
