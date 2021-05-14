@@ -28,4 +28,8 @@ export class ForgotPasswordComponent implements OnInit {
     console.log(this.username)
     this.service.resetPassword(this.username).subscribe()
   }
+  cambiaPassword() {
+    console.log(this.password)
+    // this.service.resetPassword(this.username).subscribe()
+  }
 }
