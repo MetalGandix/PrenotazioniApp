@@ -69,7 +69,7 @@ public class UserController {
         utente = repositoryUtente.findByUsername(userPrincipal.getUsername());
         utente = user;
         repositoryUtente.save(utente);
-        return "CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        return "Utente aggiornato";
     }
 
     @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
@@ -126,6 +126,18 @@ public class UserController {
         confirmationTokenRepository.delete(tokenToDelete);
         userRepositoryAutomated.delete(user);
         return "Utente eliminato correttamente";
+    }
+
+    @PutMapping("/resetPassword/{username}")
+    public String changePassword(@PathVariable String username){
+        if(username == null){
+            return "Non esiste nessun utente con questo username";
+        }else{
+        DAOUser utente;
+        utente = userRepository.findUserByUsername(username);
+        repositoryUtente.save(utente);
+        return "Utente aggiornato";
+        }
     }
 
     @PatchMapping("/nominaAdmin/{id}")
