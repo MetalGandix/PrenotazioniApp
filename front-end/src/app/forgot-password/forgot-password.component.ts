@@ -9,18 +9,23 @@ import { GestioneUtenteService } from '../service/gestione-utente.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private service: GestioneUtenteService,private router: ActivatedRoute) { }
+  constructor(private service: GestioneUtenteService, private router: ActivatedRoute) { }
 
   username: string
-  
+  tokenExist: boolean = false
+  password: string
+
   ngOnInit(): void {
-  this.router.params.subscribe(r=> {
-    let token = r["token"]
-    console.log(token)
-  })
+    this.router.params.subscribe(r => {
+      let token = r["tokenid"]
+      if(token){
+        this.tokenExist = true
+      }
+      console.log(token)
+    })
   }
- resetPassword(){
-   console.log(this.username)
-   this.service.resetPassword(this.username).subscribe()
- }
+  resetPassword() {
+    console.log(this.username)
+    this.service.resetPassword(this.username).subscribe()
+  }
 }
