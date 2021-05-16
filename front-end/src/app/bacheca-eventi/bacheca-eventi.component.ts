@@ -21,7 +21,7 @@ export class BachecaEventiComponent implements OnInit {
   }
 
   admin: boolean = false
-  utente: User[]
+  utente: User
   refresha: number
   visitor: boolean = false
 

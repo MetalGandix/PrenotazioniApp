@@ -14,7 +14,7 @@ export class SceltaUtenteComponent implements OnInit {
   admin: boolean = false
   visitor: boolean = false
   refresha: number
-  utente: User[]
+  utente: User
 
   constructor(private auth: AuthenticationService, private gestioneUtente: GestioneUtenteService) { }
 

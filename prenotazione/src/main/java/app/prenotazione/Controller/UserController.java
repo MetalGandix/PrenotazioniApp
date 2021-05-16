@@ -38,9 +38,6 @@ public class UserController {
     private JwtUserDetailsService userRepository;
 
     @Autowired
-    private UserDaoRepository userRepositoryAutomated;
-
-    @Autowired
     private SmtpMailSender smtpMailSender;
 
     @Autowired
@@ -130,10 +127,10 @@ public class UserController {
 
     @DeleteMapping("/eliminaUtente/{id}")
     public String eliminaUtente(Authentication a, @PathVariable long id) {
-        DAOUser user = userRepositoryAutomated.getOne(id);
+        DAOUser user = repositoryUtente.getOne(id);
         ConfirmationToken tokenToDelete = confirmationTokenRepository.findByUser(user);
         confirmationTokenRepository.delete(tokenToDelete);
-        userRepositoryAutomated.delete(user);
+        repositoryUtente.delete(user);
         return "Utente eliminato correttamente";
     }
 
@@ -155,7 +152,7 @@ public class UserController {
 
     @PatchMapping("/nominaAdmin/{id}")
     public String nominaAdmin(Authentication a, @PathVariable long id) {
-        Optional<DAOUser> user = userRepositoryAutomated.findById(id);
+        Optional<DAOUser> user = repositoryUtente.findById(id);
         if (user.isPresent()) {
             DAOUser userRuolo = user.get();
             Role ruolo = roleRepository.findById(2);

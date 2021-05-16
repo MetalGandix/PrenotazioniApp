@@ -15,17 +15,7 @@ import { AuthenticationService } from '../service/authentication.service';
 export class SidenavComponent implements OnInit{
   @Output() sidenavClose = new EventEmitter();
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
-    public onSidenavClose = () => {
-      this.sidenavClose.emit();
-    }
-
-    utente: User[]
+    utente: User
     visitor: boolean = false
     admin: boolean = false
     session
@@ -33,7 +23,6 @@ export class SidenavComponent implements OnInit{
   constructor(private breakpointObserver: BreakpointObserver, private gestioneUtente: GestioneUtenteService, private auth: AuthenticationService) {}
 
   ngOnInit(){
-    // debugger
     if(sessionStorage.getItem("Role") === "ROLE_ADMIN"){
       this.admin = true
     }else if(sessionStorage.getItem("Role") === "ROLE_USER"){
@@ -52,5 +41,16 @@ export class SidenavComponent implements OnInit{
     logOut() {
       this.auth.logOut()
     }
+
+    
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
+
+  public onSidenavClose = () => {
+    this.sidenavClose.emit();
+  }
 
 }
