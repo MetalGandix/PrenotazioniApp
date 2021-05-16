@@ -3,11 +3,9 @@ package app.prenotazione.Controller;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-
 import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,6 +27,7 @@ import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.ConfirmationTokenRepository;
 import app.prenotazione.Repository.RoleRepository;
 import app.prenotazione.Repository.UserDaoRepository;
+import app.prenotazione.Repository.UserRoleRepository;
 
 @RestController
 @CrossOrigin
@@ -63,13 +62,27 @@ public class UserController {
         return "Mail mandata";
     }
 
+    @PatchMapping("/nominaAdmin/{id}")
+    public String nominaAdmin(Authentication a, @PathVariable long id) {
+        Optional<DAOUser> user = repositoryUtente.findById(id);
+        if (user.isPresent()) {
+            DAOUser userRuolo = user.get();
+            Role ruolo = roleRepository.findById(2);
+            HashSet<Role> roles = new HashSet<Role>();
+            roles.add(ruolo);
+            userRuolo.setRoles(roles);
+            repositoryUtente.save(userRuolo);
+            return "Utente aggiornato";
+        } else {
+            return "Utente non aggiornato";
+        }
+    }
+
     @PutMapping("/changeUserDetails")
     public String changeUserDetails(Authentication a, @RequestBody DAOUser user) {
-        UserDetails userPrincipal = (UserDetails) a.getPrincipal();
-        DAOUser utente;
-        utente = repositoryUtente.findByUsername(userPrincipal.getUsername());
-        utente = user;
-        repositoryUtente.save(utente);
+        Optional<DAOUser> userRuolo = repositoryUtente.findById(user.getId());
+        user.setRoles(userRuolo.get().getRoles()); 
+        repositoryUtente.save(user);
         return "Utente aggiornato";
     }
 
@@ -147,22 +160,6 @@ public class UserController {
                     + "qua" + "</a>";
             smtpMailSender.send(utente.getUsername(), "Conferma la tua email", stringaMail);
             return confirmationToken.getConfirmationToken();
-        }
-    }
-
-    @PatchMapping("/nominaAdmin/{id}")
-    public String nominaAdmin(Authentication a, @PathVariable long id) {
-        Optional<DAOUser> user = repositoryUtente.findById(id);
-        if (user.isPresent()) {
-            DAOUser userRuolo = user.get();
-            Role ruolo = roleRepository.findById(2);
-            HashSet<Role> roles = new HashSet<Role>();
-            roles.add(ruolo);
-            userRuolo.setRoles(roles);
-            repositoryUtente.save(userRuolo);
-            return "Utente aggiornato";
-        } else {
-            return "Utente non aggiornato";
         }
     }
 

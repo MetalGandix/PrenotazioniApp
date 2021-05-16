@@ -35,10 +35,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   requestResetPassword() {
     console.log(this.username)
-    this.service.requestReesetPassword(this.username).subscribe()
+    this.service.requestResetPassword(this.username).subscribe()
   }
 
-  cambiaPassword() {
+cambiaPassword() {
     if (this.tokenExist) {
       console.log(this.password)
       this.user.password = this.password;
