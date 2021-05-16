@@ -88,7 +88,7 @@ public class UserController {
 
     @GetMapping("/existUser/{username}")
     public boolean existUser(@PathVariable String username) {
-        if (userRepository.findUserByUsername(username) == null) {
+        if (repositoryUtente.findByUsername(username) == null) {
             return false;
         } else {
             return true;
