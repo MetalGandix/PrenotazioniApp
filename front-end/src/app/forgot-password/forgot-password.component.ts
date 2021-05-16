@@ -33,17 +33,16 @@ export class ForgotPasswordComponent implements OnInit {
     })
   }
 
-  resetPassword() {
+  requestResetPassword() {
     console.log(this.username)
-    this.service.resetPassword(this.username).subscribe()
+    this.service.requestReesetPassword(this.username).subscribe()
   }
 
   cambiaPassword() {
     if (this.tokenExist) {
       console.log(this.password)
-      console.log(this.user.username)
-      console.log(this.user)
       this.user.password = this.password;
+      console.log(this.user)
       this.service.changeUserDetail(this.user).subscribe()
     } else {
       return "Token non trovato"

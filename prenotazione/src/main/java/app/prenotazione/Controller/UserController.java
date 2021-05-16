@@ -1,4 +1,5 @@
 package app.prenotazione.Controller;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,20 +52,23 @@ public class UserController {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
 
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
+
     @PostMapping("/user")
-    String addUser(@RequestBody DAOUser user) throws MessagingException{
+    String addUser(@RequestBody DAOUser user) throws MessagingException {
         ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(user));
         confirmationTokenRepository.save(confirmationToken);
-        String stringaMail = "Per confermare l'account, per favore clicca " 
-        + "<a href=\"" + "http://localhost:8080/confirm-account?token="
-        +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
+        String stringaMail = "Per confermare l'account, per favore clicca " + "<a href=\""
+                + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken() + "\">"
+                + "qua" + "</a>";
         smtpMailSender.send(user.getUsername(), "Conferma la tua email", stringaMail);
         return "Mail mandata";
     }
 
     @PutMapping("/changeUserDetails")
     public String changeUserDetails(Authentication a, @RequestBody DAOUser user) {
-        UserDetails userPrincipal = (UserDetails)a.getPrincipal();
+        UserDetails userPrincipal = (UserDetails) a.getPrincipal();
         DAOUser utente;
         utente = repositoryUtente.findByUsername(userPrincipal.getUsername());
         utente = user;
@@ -71,19 +76,15 @@ public class UserController {
         return "Utente aggiornato";
     }
 
-    @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
-    public String confirmUserAccount(@RequestParam("token")String confirmationToken)
-    {
+    @RequestMapping(value = "/confirm-account", method = { RequestMethod.GET, RequestMethod.POST })
+    public String confirmUserAccount(@RequestParam("token") String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-        if(token != null)
-        {
+        if (token != null) {
             DAOUser user = repositoryUtente.findByUsername(token.getUser().getUsername());
             user.setEnabled(true);
             repositoryUtente.save(user);
-        }
-        else
-        {
-           return "Il link non funziona";
+        } else {
+            return "Il link non funziona";
         }
         return "Mail verificata";
     }
@@ -109,24 +110,26 @@ public class UserController {
 
     @PutMapping("/cambiaUtente/{usernameid}")
     public DAOUser cambiaUtente(Authentication a, @RequestBody DAOUser username) throws MessagingException {
-        // ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(username));
+        // ConfirmationToken confirmationToken = new
+        // ConfirmationToken(userRepository.save(username));
         // confirmationTokenRepository.save(confirmationToken);
-        // String stringaMail = "Per confermare l'account, per favore clicca " 
+        // String stringaMail = "Per confermare l'account, per favore clicca "
         // + "<a href=\"" + "http://localhost:8080/confirm-account?token="
         // +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
-        // smtpMailSender.send(username.getUsername(), "Conferma la tua email", stringaMail);
+        // smtpMailSender.send(username.getUsername(), "Conferma la tua email",
+        // stringaMail);
         return (DAOUser) userRepository.save(username);
     }
 
     @GetMapping("/getUtenteFromToken/{token}")
-    public DAOUser getUtenteFromToken(@PathVariable String token){
+    public DAOUser getUtenteFromToken(@PathVariable String token) {
         ConfirmationToken tokenArrived = confirmationTokenRepository.findByConfirmationToken(token);
         DAOUser user = repositoryUtente.findByUsername(tokenArrived.getUser().getUsername());
         return user;
     }
 
     @DeleteMapping("/eliminaUtente/{id}")
-    public String eliminaUtente(Authentication a, @PathVariable long id){
+    public String eliminaUtente(Authentication a, @PathVariable long id) {
         DAOUser user = userRepositoryAutomated.getOne(id);
         ConfirmationToken tokenToDelete = confirmationTokenRepository.findByUser(user);
         confirmationTokenRepository.delete(tokenToDelete);
@@ -134,25 +137,26 @@ public class UserController {
         return "Utente eliminato correttamente";
     }
 
-    @PutMapping("/resetPassword/{username}")
-    public String changePassword(@PathVariable String username) throws MessagingException{
-        if(username == null){
+    @PutMapping("/requestResetPassword/{username}")
+    public String changePassword(@PathVariable String username) throws MessagingException {
+        if (username == null) {
             return "Il campo username non può essere vuoto.";
-        }else{
-        DAOUser utente;
-        utente = userRepository.findUserByUsername(username);
-        ConfirmationToken confirmationToken = confirmationTokenRepository.findByUserId(utente.getId());
-        String stringaMail = "Per ripristinare la password dell'account, per favore clicca " 
-        + "<a href=\"" + "http://localhost:4200/forgot-password/token/" + confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
-        smtpMailSender.send(utente.getUsername(), "Conferma la tua email", stringaMail);
-        return confirmationToken.getConfirmationToken();
+        } else {
+            DAOUser utente;
+            utente = userRepository.findUserByUsername(username);
+            ConfirmationToken confirmationToken = confirmationTokenRepository.findByUserId(utente.getId());
+            String stringaMail = "Per ripristinare la password dell'account, per favore clicca " + "<a href=\""
+                    + "http://localhost:4200/forgot-password/token/" + confirmationToken.getConfirmationToken() + "\">"
+                    + "qua" + "</a>";
+            smtpMailSender.send(utente.getUsername(), "Conferma la tua email", stringaMail);
+            return confirmationToken.getConfirmationToken();
         }
     }
 
     @PatchMapping("/nominaAdmin/{id}")
-    public String nominaAdmin(Authentication a, @PathVariable long id){
+    public String nominaAdmin(Authentication a, @PathVariable long id) {
         Optional<DAOUser> user = userRepositoryAutomated.findById(id);
-        if(user.isPresent()){
+        if (user.isPresent()) {
             DAOUser userRuolo = user.get();
             Role ruolo = roleRepository.findById(2);
             HashSet<Role> roles = new HashSet<Role>();
@@ -160,8 +164,23 @@ public class UserController {
             userRuolo.setRoles(roles);
             repositoryUtente.save(userRuolo);
             return "Utente aggiornato";
+        } else {
+            return "Utente non aggiornato";
         }
-        else{
+    }
+
+    @PutMapping("/changePassword/{token}")
+    public String changeUserPassword(@RequestBody DAOUser user, @PathVariable String token) {
+        ConfirmationToken tokenArrived;
+        tokenArrived = confirmationTokenRepository.findByConfirmationToken(token);
+        if (tokenArrived.getUser().getId() == user.getId()) {
+            DAOUser utente;
+            utente = repositoryUtente.findByUsername(user.getUsername());
+            utente = user;
+            utente.setPassword(bcryptEncoder.encode(utente.getPassword()));
+            repositoryUtente.save(utente);
+            return "Utente aggiornato";
+        } else {
             return "Utente non aggiornato";
         }
     }

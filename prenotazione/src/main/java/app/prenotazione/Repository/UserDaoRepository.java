@@ -6,6 +6,5 @@ import app.prenotazione.Entity.DAOUser;
 
 @Repository
 public interface UserDaoRepository extends JpaRepository<DAOUser, Long> {
-	
 	DAOUser findByUsername(String username);
 }

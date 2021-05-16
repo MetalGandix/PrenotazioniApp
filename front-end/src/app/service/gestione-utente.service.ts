@@ -39,11 +39,15 @@ export class GestioneUtenteService {
   public changeRole(id: number){
     return this.http.patch<User>(this.url + "nominaAdmin/"+id, {});
   }
-  public resetPassword(username: string){
-    return this.http.put(this.url + "resetPassword/" + username,{});
+  public requestReesetPassword(username: string){
+    return this.http.put(this.url + "requestResetPassword/" + username,{});
   }
 
   public getUtenteFromToken(token: string): Observable<User>{
     return this.http.get<User>(this.url + "getUtenteFromToken/"+ token )
-    }
+  }
+
+  public changePasswordUserNotAuthenticated(user: User, tokenToSend: string){
+    return this.http.put(this.url + "changePassword/" + tokenToSend, user)
+  }
   }
