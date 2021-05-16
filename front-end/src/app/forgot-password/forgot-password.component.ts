@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GestioneUtenteService } from '../service/gestione-utente.service';
 import { User } from '../class/user';
 
@@ -10,7 +10,7 @@ import { User } from '../class/user';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private service: GestioneUtenteService, private router: ActivatedRoute) { }
+  constructor(private service: GestioneUtenteService, private router: ActivatedRoute, private routerLink: Router) { }
 
   username: string
   tokenExist: boolean = false
@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
       }
       this.service.getUtenteFromToken(this.token).subscribe(utente => {
         this.user = utente
-        console.log("Utente trovato: ",this.user)
+        console.log("Utente trovato: ", this.user)
       })
       console.log(token)
     })
@@ -43,7 +43,13 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(this.password)
       this.user.password = this.password;
       console.log(this.user)
-      this.service.changeUserDetail(this.user).subscribe()
+      let subscriber = this.service.changePasswordUserNotAuthenticated(this.user, this.token).subscribe()
+      console.log(subscriber)
+      if(subscriber){
+        this.routerLink.navigate(['/login'])
+      }else{
+        return
+      }
     } else {
       return "Token non trovato"
     }
