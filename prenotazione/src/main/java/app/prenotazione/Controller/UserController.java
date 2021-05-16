@@ -63,8 +63,7 @@ public class UserController {
 
     @PutMapping("/changeUserDetails")
     public String changeUserDetails(Authentication a, @RequestBody DAOUser user) {
-        // repositoryUtente.changeUsername(user.getUsername());
-        UserDetails userPrincipal= (UserDetails)a.getPrincipal();
+        UserDetails userPrincipal = (UserDetails)a.getPrincipal();
         DAOUser utente;
         utente = repositoryUtente.findByUsername(userPrincipal.getUsername());
         utente = user;
@@ -120,8 +119,9 @@ public class UserController {
     }
 
     @GetMapping("/getUtenteFromToken/{token}")
-    public DAOUser getUtenteFromToken(@PathVariable ConfirmationToken token){
-        DAOUser user = repositoryUtente.findByUsername(token.getUser().getUsername());
+    public DAOUser getUtenteFromToken(@PathVariable String token){
+        ConfirmationToken tokenArrived = confirmationTokenRepository.findByConfirmationToken(token);
+        DAOUser user = repositoryUtente.findByUsername(tokenArrived.getUser().getUsername());
         return user;
     }
 

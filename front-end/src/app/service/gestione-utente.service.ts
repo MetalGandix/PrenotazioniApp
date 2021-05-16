@@ -41,10 +41,9 @@ export class GestioneUtenteService {
   }
   public resetPassword(username: string){
     return this.http.put(this.url + "resetPassword/" + username,{});
-
-
   }
 
-
-
-}
+  public getUtenteFromToken(token: string): Observable<User>{
+    return this.http.get<User>(this.url + "getUtenteFromToken/"+ token )
+    }
+  }

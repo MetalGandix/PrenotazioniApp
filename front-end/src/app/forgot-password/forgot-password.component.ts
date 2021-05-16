@@ -16,40 +16,38 @@ export class ForgotPasswordComponent implements OnInit {
   tokenExist: boolean = false
   password: string
   user: User;
+  token: string
 
   ngOnInit(): void {
     this.router.params.subscribe(r => {
       let token = r["tokenid"]
+      this.token = token
       if (token) {
         this.tokenExist = true
       }
+      this.service.getUtenteFromToken(this.token).subscribe(utente => {
+        this.user = utente
+        console.log("Utente trovato: ",this.user)
+      })
       console.log(token)
     })
   }
+
   resetPassword() {
     console.log(this.username)
     this.service.resetPassword(this.username).subscribe()
   }
+
   cambiaPassword() {
     if (this.tokenExist) {
       console.log(this.password)
-      console.log(this.username)
-      // this.service.resetPassword(this.username).subscribe()
-      this.service.findUtenteSingoloLogin(this.username).subscribe(u => {
-        if (u!=null) {
-          this.user = u
-          console.log(this.user)
-        }else{return "Utente non trovato."}
-      }
-      )
-      this.user.password=this.password;
+      console.log(this.user.username)
       console.log(this.user)
-      // this.service.changeUserDetail(this.user)
-    }else{ 
-      
-      console.log(this.user)
-      return "Token non trovato"}
-    
+      this.user.password = this.password;
+      this.service.changeUserDetail(this.user).subscribe()
+    } else {
+      return "Token non trovato"
+    }
   }
 }
 
