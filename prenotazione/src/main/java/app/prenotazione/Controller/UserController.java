@@ -119,6 +119,12 @@ public class UserController {
         return (DAOUser) userRepository.save(username);
     }
 
+    @GetMapping("/getUtenteFromToken/{token}")
+    public DAOUser getUtenteFromToken(@PathVariable ConfirmationToken token){
+        DAOUser user = repositoryUtente.findByUsername(token.getUser().getUsername());
+        return user;
+    }
+
     @DeleteMapping("/eliminaUtente/{id}")
     public String eliminaUtente(Authentication a, @PathVariable long id){
         DAOUser user = userRepositoryAutomated.getOne(id);
@@ -131,7 +137,7 @@ public class UserController {
     @PutMapping("/resetPassword/{username}")
     public String changePassword(@PathVariable String username) throws MessagingException{
         if(username == null){
-            return "Non esiste nessun utente con questo username";
+            return "Il campo username non può essere vuoto.";
         }else{
         DAOUser utente;
         utente = userRepository.findUserByUsername(username);
