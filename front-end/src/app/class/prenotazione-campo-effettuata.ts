@@ -8,7 +8,7 @@ export class PrenotazioneCampoEffettuata {
     id: number
     data: Date
     orario: string
-    Campo: Campo
+    campo: Campo
     utentePrenotazione: User
 
     infoAggiuntiva: string
