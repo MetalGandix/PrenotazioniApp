@@ -6,7 +6,7 @@ export class PrenotazioneCampo {
     id: number
     data: Date
     orario: string
-    numCampo: Campo
+    Campo: Campo
     userPrenotazione: User
 
     infoAggiuntiva: string
