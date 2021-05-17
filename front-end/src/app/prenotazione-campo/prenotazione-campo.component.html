@@ -3,7 +3,7 @@
         <br>
         <h1 class="h1" style="font-size: 1.5rem;">Per prenotare il Campo devi effettuare il login</h1>
         <br>
-        
+
 
         <button routerLink="/login" class="btn btn-lg btn-primary btn-block text-uppercase"
             style="display:block; margin-left: auto; margin-right: auto;">Vai al login</button>
@@ -11,7 +11,7 @@
 
     <div *ngIf="visitor" class="container" style="margin-top: 20px; margin-bottom: 50px;">
 
-        <div class="row"> 
+        <div class="row">
             <div style="margin-bottom: 20px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
                 <h1>Prenota il Campo e l'orario in cui giocare</h1>
             </div>
@@ -19,15 +19,732 @@
         <div class="row">
 
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
-            <!-- <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                    <div class="card-body">
-                        <h1 class="card-title text-center">Prenota l'orario e il campo che preferisci.</h1>
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <table *ngIf="!domenica" border="0" align="center" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            <table class="righe_colonna">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=5&amp;icoref=143&amp;icorec=0">Tennis</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 8:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=kvcec17js0racucep25inkrieh3anp65gmfs85l2uu8224m13infavip0k4iveblr04p0iteoifmfnmmpimvlctqd5i5gg6b7gf6brog9b4o5q5hm6b7sc3ho5c2ulfh50ieo7pous50tm56f2b3kr0kvhqcrm1nhbd5lcrr5nrfe26rftt6h1n84urous38oeia3onhip27p1rrfpj2rftojv7a80am6lc5pc2ps5vmds33kip9ivbsm4q0meiq1oihbnm7rp4e97nqdff53b6af5g6l64v4uohqhqqub0vvc3crm1pha0d885f24jpgj2fehmel1c3htvml3mprrt243vtei8tpvm153fbrl59i">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=qoxwk1ajtu2tntnupsmqgemkh1c2dmj8kblppcre2olcreq3lamlh4vitlugsi95ssmrdrpej473k5r1gipcttonkbmn4lsd5ge593t80dnpcflakijrc1grum3suqmkmpicfdpqorrcujsfui7dbqt27hqni3bnhalapsj0ummngv0i9533e1d9lfomtbsie3crs1soqrjutvluc3gvdaj5p2sljm2d2lc5sc2hq514q38iclm8g4a1jpgnhrul1oie9dk8c3toc343k5s9l1bb78gdfbpomqj4unff5etnuuucu385bsf3ipuhv1luilsc76damcrurpcoks6lc53jqnqjt5vluqk29acddmq39">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=njacspt5nvrd5udcptnlmmof3otallj93qhvrp24c6ooqql3la5ulvinub1m7f55qm4o15v4suem85rms2c4iunqiruq43933jnb7d4f0g9nrs5hfadbsc3kl24nusnj50q75fnouv2of395gaa3i85e64hcr3b76hfdpuheapp2qt1jeqmt43nbmp8rc4fab5vh3qlj0okvus85nr39e6lolus0aa9l63i5so4pq5u4s22r7nm8iip1jctjeboq3dif2rmarq4h2gagrr5hjuiae7la5f1oc2gflqq6fo3n6u1cs3b7gb33h85iq9guml1njegrvndu4poc390rdpaa45pbni8qc4jug4hclgdfk">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=brcgif64udo1n2361ojibqifjjbr1aaemf71v24tsmpeso3rrslbi90ccvish8hlc5uds0fosmse5r7i0dok1n03ilgnqih4hj09ggamhf3itgddilfsckaj3op1st4sngqso5psrnqif4tfgmqjj1ceancrk1575hgp4251fcp3b2hafo0gudcs5vsn0dihbvhkgjkkqnv4dvsdeqis7jka0vc50ariqjgomcv05uli03f9qme39gn6361f9kf5guaossmirfd0ogmrrm7hv8ah7rrs6nb3bugjmf8i4ud74d3te77mh93hprgrti1mriea43i85es0eqff4msj51bf1njto8qtqhv46kcr146a">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=pjwmtjv5jnu0urtc55mjkg0q3q2v3nv2lhtlosie2vmufoi6ogm5p4se4f5oisai32omvl0ij263hnj8gsf0r1n8sdfj8i6dosj3rpg888fhbllop4b850ifqbtb5tfimmpf5hrqe2psnjab9e63hqqkrrj0qo3njbd9prm3htrf382jdl21kstjqnmmpli6ddgrsjflprm3c6np24f2lbtjg2209ivlvdapo1t66niik1aoruk338csosumjbl5dl0a5djagolofa1hckpd3bc3ocfbn64psrl4rpjci2r131uculsbadaor1rfe7gsnja5a9jruug0uermo773knk1lr184unhc1f2a8n9jhtml">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=ndgoi182jd2np33jeupjhis5qct7kcb3nj5tpmjpu2scptgip5i5nvim0evk23igd1th5msm387dcgnbninrjcsigrsinpv66kkmieed73fkfn5ekse4gbnrs5pb2li4sk5gi6quuc4nfo38lbalrutcvsm1p3967pp5lcprhqpgh363igk8ln54on8qtlktadjrqgi7umfe3q82fsh3jrsga73bbh5lipcfknur15vjgicd85s338dqktm8q6fq8ea9cl4ccdl38db3ikiopsapl33hi4qssbsffsm5t90ve2umme4ihqdi882crhrp5pv58ajrvnc32f4jn4mpcfrum11jrkl42lgif5vhgfr7f">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=rkmftf3t66tc3stt5cmmdgsl3ojb3q4iqpihscoqqdur27k0l55ucibg4hhssk5kjsctdu8tkidr8fpmpuecsr61k9nfnsuohjl7rse9077jrs5h3betheg5pm2nqbrj50m8n2c6qc6smkin170ibocpea45m39f73nruoge7jcrk08drumjtsu44uilmqj2ofvk3qm7v4fo0duogep13kmjisipv0aj3krudtmltl8r3bmsc5segskcsok8pa5u8h42osgmkjl9mh1k5kl839tmqfkrsepl0brgj7r95htr0md5h3be87ms5pmhu1435sigbpqjlmme7gq2p1mscjst45pjtlplc4d327fb3odfv">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="righe_colonna">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=5&amp;icoref=148&amp;icorec=0">Padel
+                                                                1 aperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 8:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="righe_colonna">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=5&amp;icoref=147&amp;icorec=0">Padel
+                                                                2 coperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 8:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=mkblx1ajvu0sc0im064cs3n1jjk313q2iqimkjcpppdv1iv3b3kmpgi8htlhqiqrroqsptk8tiidkcigmqtdct1mp3k5u8n2oekebrq4fmechbol73bcth7k8gm3mpbsplo5j5ht1uc3tfoilolmpgmslu045k398baervnfe8psj3bmscpqjqtn84s8rc1o08bfa3qk7vtjrndvnfeq7jc5u0b3k307ksors33cs2jonj1msa5s7kvbctnj8qglmnsih9nkmhkedmfnqrrq6j5dcqfirs7tonbsfi7sfl9c6e5u0l38f2jmqrvco3vkvliig9tqcppde8fp2q76kruacl0tjqmipc239oek9jkt5v">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=5&amp;icoref=150&amp;icorec=0">Padel
+                                                                3 aperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=warcke2bndvqa34fptnt3nuhme0ipfvujhml00j2pu0t27hsljiijta09itmvgrrhoomtmmsn3agctmms0auupjrej5r9f5553q47fk876fncpi9r3qna0lji3vm4brmhqi75eqpqsttjr6ce37rc85go3spimtfrcl7rpfe7ioej27hjpr7ht544umeu3gvb3nrpjhqlp24qpksivhancpiha30cerlag8oe4csvhrhgich7hl6k0o0n0jprc5u5d4g5gn1j3qa2b4grrj4f2afaencp3t3tbuifpt7ibn5e2voogvrg42fbotg65l0ika8rfh5q4fr4f42p42m8ia9iop3kmms0snv9ggrsfn8n">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><a href="#"
+                                                onclick="MM_RichiamaMX('/ges/mx1.asp?xd22=ooaedct5qts2hkrmm5s15qjb8vgguiq1gtkbr1ecugk1e3bdnh6cgbikd1s151uboeprp1','attendere&amp;nbspprego','loading...')"><img
+                                                    src="/imma/Accessori/Beack.png" width="33" height="33" border="0"
+                                                    alt="indietro"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table *ngIf="domenica" border="0" align="center" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            <table class="righe_colonna">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=6&amp;icoref=143&amp;icorec=0">Tennis</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 8:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=xcrah1a666uqn2akukunimmm3o5isf1iqfpm85qvsoqt27misjig0b6i0i3i7dc5qucvrj8rh653ktm6e4hcvv61r8g5gn45bljb5k4f8ogh95s6n1pmm7j6n7c4vbusii5jpapv0r2mm39cnj4hrvqmtht4mjt9bpse85qrs45mlv8laqk443vjtjm43pn1ohncjcno85le55ln27n4gdnkls30aihs0hrsh0r66tpke473ko5frvbcv0olldkq1kifb3t493r6a7nsjml3l3pmhmsji1c40timnmq4mo3ve5rq5q0e6qfrconkvhtv5sa45psfqpk00pmj3983kjojrq124u0lsml3ohirspq1v">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=ntmhser5ut458npnpaq5picrjd81k19ag1snlnde3dupc0r2rjqgdt4o107kipbhort63tl4q23e65smpvauusu0o6ig9r0ofk4cbfp77odr85s8gt5nhmp8f84r43qfiinijo2ue2toqi3qhe33iopdphrcrgs9i9rjtnfp3sq2p3mpbhv2lc3bh5vkpmeifol8djtn04nppoq4gep33hlhl1309ou39j8gec363iimr2erggi1laecst6uj7qk838g63r68efododg5nt8raf271ljjm2sc1lgqmmqrgpd5sqng39qh30ljo4q3shnnr0nga3hoont242qgidj8gljrc30en0k43ot53hjh137v">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=kovjid06moc3u4o1mcro125sc16dctvei5t85j31d14mqi5j65ug1uo107oiprueq0goflfkic3kmqb3bo0irpoerul6fa6pppmh3t34c1e5ig938qk7borue0nrulf50l9hgqd41d25st8i61d8jt24httqoigidfarsdeakrer0mpg50jtnr7egihns38ohggo1uvsoh1so85itfahrrq08ipue5dtd8gkc266mtp3ben7ko6eipsloum3hq5d3b37ne15gf9menscqqosae759j65fsqo3j4rs5g5hnr2momie3qksfkgtcr65grojtnj9i70q246422st4n5gk0ftd94upp1bsac4eejcdff">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=ikwre17jtqjc3jm4jv5sbojkdjb3o05kkjl0027opncpq383iig0bva6f43bd7jkocvdslnk54hjp5ffufcto6u3iignsv2cinmkdg674nsrsibk58cka3kh2rb3n5q5ui55hpn1r0cudu994msrvplv4iqtnig65irvo24hrpd3b3dektjtmp1lh8tc2g59bd9rl50kohe3p8225gt3kifj150cath3fru33ppuomir6ms7hkmqu0263jj3kifai5oidg4cf4hmf4mcoj6r6qn82irs2c1c2if50i4o7vd7mpqmfikof3mcrqg6545hf1nh53h83fphtpcm193kfm1lodc4slntuh0gcvkfdsmm">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=vkilbmhalr5c3n4313q3n45spjbeg24mefp82ktc3scoph73ikjgibfbohq73ht35466gnjl53dd5r8iim062hmorsk5jih8rsmio4eeogrrug7i4e5283hn5c10brfjs5hk6sd7r545q7rhmmsj85dt0mvid4ngbiru024si12q14jrupbsc484r04533b37edmefp82ktc3scoph73ikjgibfbohq73ht35466gnjl53dd5r8iim062hmorsk5jih8rsmio4eeogrrug7i4e5283hn5c10brfjs5hk6sd7r545q7rhmmsj85dt0mvid4ngbiru024si12q14jrupbsc484r04533b37edmen8v">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=mahfw17b63toerncumvtqn135sbj8lhb2ieksnsi01582qep3f9kl0b2j4l5393kf32um5lnhi75jbnqe38ocstimib5u7m3dd3rmkd4e88fjaikdi2bdje3htm2sopkk50ldmd0d5c6m5p4bna5gatriu3p45pangaf9ns271ntnnid3kfa9ms53jinprrj4dgvhr1rokqhuc6ovj3niqruf084gbg0g1oalju1udr04p32hal5fj5h1qct8s55r9ja88gjbajkabgnpj5r9f0abufjemb0b3bue5tnat8rqt1ssll7jvge3hpogt145lm3cepqr1m243k4iiv5oalq5p4d9s5ulopi2ohfekm1mm">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=juqhl185juumk6oj4b2n3oqpmjt5o19u3oghjtc2c383deq4gcni08ucb07liq9pmump25ug391d6mfa3803hctqgcninpu4h3q8rqic9a1mg5r4396957df5cc2nbsmion75eop6c3u5q0gc80mg82ee8fmgksbqf3ijcp0uluf382fj50543r7nnin1bpuofa5eifr8225ndvufvlv3hhhoi8ijnvn5l5ooc2idsjee30nrr5deinujtol3hhhf38apqiaelebbodfrsg2e35jqc3igm3tpsnh5th6to2ve3r0olsfemcfrvncp2e05pie5pqdltkrhqoericlrso7nun6p5ugc2es399f3ndda">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=obvywhhcun3lltpmnokrcqjhl0iqk51ghji83i141ocr6d7nrsggtufbbvh0n85qvulqlmf396mjplmsaa1qctjj6hkfe067nhmimm7385erslbr6cpfedgpm3msmhjtij8jcpd5vvrij07sj6mjss279e1p392a4fa0ngsvop2q58i8lou43t6spo453d7com6jchm0ngsq1lcp1l1gbjg092jbk13br5qnc3htgkjrt4h9pimq5irjskj3ilofn2oirebf3r3633ijgj6h69pd9lai6qmc2lntrlqugm22c4nleubk74h9sp254mrij02qgje00ieasmnnidebgm2snr1ipl43ul158d63ot9n">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=vqdje17jvtl6vku142jfjcuhpusjf11rf50lsle2dv4kq383kl5m53ib07hulruh4ngtjmjr0ms8lompin4oo6u3kl5dm3ah3q47l4h4g2dbjj7r0sl96mrrm33un5q50lqrbtv6c3qhlim4g1dbmqh6v45ij5ngpqjqo24hts2p57lj501gudcitjesph1g6vkgho7ucp6up8227jipemnoi8evihs0r6fjqql5j8tg293h5selu0265m8pemnf3865l4f9rf2665ijj5hg2fsimqjn2c1c4l4rqmcto2rqud5jrt7664ijmcrr1ncr39fc53h85ie7ntkrich7naci4otkjmj4p3b58irp14eh">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=kixqpp2br5pm066s3nnejoigp4sn192kdjslpkp4u01qrfa3khpb4tivdur3df5pstirqlhltekjqt3fa05i0hqedhi4r32d3q6cfid359ejmtdrv9eofffg8ntooismhpqr8tps1qpneaehjeg70crq5fuglu47hk5scou2gqngv8ejm28sppb4ukonte445cjkbp7usjqq2lpkpr3rgticaipvksltl7ig4tg15ukku4o8in1r3o1upi03khp2lta5ghecdooc88f9qi5ltl7gbr8hec4ovgmgph7igtn2c3smf0i6b8ejp4n6ug45sub5bedkpf62e02p27f9qn0mn54sq0ho33b4cadejp3c">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=ichsfpv4pqrvk0p51hpfod4he19isi3iq1urltdtt5mtlrm5lfnoluva8c9ft3h5sts6451og31ictj7mvjvo0oro7ifcfa443qmkkkodogn8mg7kabah3menauu1nieqjt6go2d7ttcs3bhab1ic0qj1unvnn4af5g5toqqs422s363i537hto2ltmlvom5acheodihtoqqnducrvjiqrupd3tf4ovk5geol0up2hleouef65rms3gctcvsgcgk8r09cgn9dnmbb44dght4eijpn7jrsm5vpsgjmvjbo5v000vvqfv7i6ef682272kcs3bb7aeap4gv4hvll68mghntpo5vf5u45sjifoofgio5g">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=oaepxhhai5ujfftsvi3n1pn19u3o01i1r7uthssdv4d6m23ihtg5t0af4gipgpnc2idsljiic3hmk4jin4h4po3iht7mtogin3rppcaodfrsi7iijtg7i9lm33n3ok5uhilbnd5r0p5p7ibmcfrvphthqcrk15apqjj4luhroqj513ikt04227o5ugc2g17olrpiklocp6n5rs25fajeg5n15djm6n63hh33pls5u4p35hb5seeajs63i0jeg5ei55pppaf3q4mf4ia5rop3cbamqjgevrc2hslqgqs7vqe220p38and3ia82242jql39f5hmb83e61nn2q19grrv7oc3v4sljrbpie9e9j14ea">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=6&amp;icoref=148&amp;icorec=0">Padel
+                                                                1 aperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=qeasl17jttgql6rnmn3q0oogu1rc0arjl71uq2npim2439jrrqk1ua50an5oagi4nj5tqk3b8rfgh0dimcts6uofkh1lihdmp56is33gflb5uar655203h5dsb20pjhhnqucv2tns4ggaigcmsd00dqrecr397qkofnoc0ht0lo11ijgnbsutjtn0onndsoevij1rssreoud10l3itijgioa4gjp3r6e7fdc264l8qo65f5n5fn5lrhrujgjtn73bahnf25d4emf73hqp7fscphamgk1r3notsnn5jng0oqmncr39auibnakmkeaovqit6i9gj0uieam4meu0drraakc38okkeubs6bde6ipo3n">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=wbxqef53pq63ipd743khjv5qf6ise0t3qhnnvjp0ukug2j5grsmji90afvl53ijmc5jqg8tf25mcgp7f4e0mvj8qco5e3977lnmihnof54eruh8i5b9g7fdjasupbslo7sqs7qv1c4qo3b871ms7orlvsothl0bahgrvtle843hh493ijtjtpqu4ukkruktc9bdhllqlcpvvdvcpth4mrsjjibd0bhsujaokn0npnmoj533imomqinrkup8q9o5ggv3psg6aml3a93l9plbgihffmqrs5qtvbsio7u7i3c6qssvme6c684nbrp252ncs3968gmrvqleahpd3b2jaoruotp5iponpbq3bomrqgr8i">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=6&amp;icoref=147&amp;icorec=0">Padel
+                                                                2 coperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 8:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">10:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">13:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=qwwsy17v662knic9l3otlkcud1aiqcvt3ojpocpq4duuc238frunetu0af6fale5smctdsjgeidhdl5dfaco0m1crfrun5euogip2jlnof2nqrsg4eihag63ihec1ulp4rj5jn6npe3s1hr4eoh03i83dqs43jl2nh9rruuc2hqo2s44e7512po55n51ec23934arqfnn83e6c3qmmepu3knjbuin2ltr4mrudc364gkf394lb5s2ri2ko0d2h3knj2fif8ogedm4h0oe3igh3398eemq7tm2tmv5qh7ucj3od5r2otl5rh2mqrvnephrqnjie6l3hqmme7gcrl01frsp8g4v64ui43bqt43vihjtmm">
+                                                                <img src="/imma/Accessori/newbo2M.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">16:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">19:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td valign="top">
+                                            <table class="righe_colonna">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="SfondoInteColServo"><a class="int"
+                                                                href="mx1.asp?ver=7&amp;ID_DataVec=6&amp;icoref=150&amp;icorec=0">Padel
+                                                                3 aperto</a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#"> 9:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">11:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">12:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">14:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=pjesvlt4pt0c0ht2n5pptjhljbfl743q50mcrr41icp2nukelm09vb0bhpak9jnc5i1pq4sifhruiens03q0ipmbm5egt543qechicmh3nfn5h3b9mj3rffm3v0nmnlo5hi3poe25tjh6rkaand8527v45ir61rdnfktlu243fev13htr1i0dcgpsmc43b6oo8rlf7v0mqt0ot25gtg65ro30e70af6nd5sc5kdulsnsmqfph7m2hctphlerrt8h0cpsgafl4hmh53kitcdiiae2kel7c2pmif5ttbj60d7o10n3brkcms800ce8o0hk57cmq8jpde7stgh6ms7pu545dci51h4vdifcj7kkt7v">
+                                                                <img src="/imma/Accessori/newbo0.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">15:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><a
+                                                                href="mpx.asp?xd22=mkvvbjvjv0q1ukv0knj3nskjg0ulgj8oghvn0k2rvmcr1h7l5fgjt009g0j1g7nic2rsh0jn4aidj5fm01komovghrrl6j155ljmhoj4e7blfkn63be9j8d5g9npc1ljlmi6n7c33rp4kn4g6a43krqn0renoe0nh6ibnpe0042niueifnu2mqdcnjtmmle536vhjglmloktc3tre6i6lfkneibj1l3dseeghc2mslnhf453hqk2r10k2rvq5sejq9ds3ceimhjj8553la5rdiujai8nan4c4vpqmfhgdg6c3urtrif4bnebi70rm05juj3ba9bl5inlpv42ii25g7npjq1svsksm0ql0ohi9ojn0a">
+                                                                <img src="/imma/Accessori/newbo2M.gif" width="50"
+                                                                    height="50" border="0" alt="busy/free"></a></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">17:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">18:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">20:00</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                    <tr class="righe_colonna">
+                                                        <td align="right"><a class="sfondo_ore_mob" href="#">21:30</a>
+                                                        </td>
+                                                        <td align="center" border="0" valign="middle"><img
+                                                                src="/imma/Accessori/newbo2.gif" width="50" height="50"
+                                                                border="0" alt="busy/free"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><a href="#"
+                                                onclick="MM_RichiamaMX('/ges/mx1.asp?xd22=ooaedct5qts2hkrmm5s15qjb8vgguiq1gtkbr1ecugk1e3bdnh6cgbikd1s151uboeprp1','attendere&amp;nbspprego','loading...')"><img
+                                                    src="/imma/Accessori/Beack.png" width="33" height="33" border="0"
+                                                    alt="indietro"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+
         </div>
-
     </div>
-</div>
-

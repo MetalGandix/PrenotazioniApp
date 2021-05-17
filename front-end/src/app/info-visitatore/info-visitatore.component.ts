@@ -38,6 +38,7 @@ export class InfoVisitatoreComponent implements OnInit {
 
   setChangeUserDetail() {
     this.gestioneUtente.changeUserDetail(this.utente).subscribe()
+   return true;
   }
 
   takeId(id: number) {
@@ -50,6 +51,7 @@ export class InfoVisitatoreComponent implements OnInit {
 
     this.service.deletePrenotazione(this.id).subscribe()
     location.reload();
+    return("{}")
 
   }
 }

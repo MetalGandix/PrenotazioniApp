@@ -27,7 +27,7 @@ import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.ConfirmationTokenRepository;
 import app.prenotazione.Repository.RoleRepository;
 import app.prenotazione.Repository.UserDaoRepository;
-import app.prenotazione.Repository.UserRoleRepository;
+// import app.prenotazione.Repository.UserRoleRepository;
 
 @RestController
 @CrossOrigin
