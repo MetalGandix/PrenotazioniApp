@@ -1,4 +1,4 @@
-package app.prenotazione.Entity;
+package app.prenotazione.Entity.utente;
 import javax.persistence.*;
 
 @Entity

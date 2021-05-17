@@ -1,4 +1,4 @@
-package app.prenotazione.Entity;
+package app.prenotazione.Entity.prenotazione_visita;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -13,8 +13,10 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import app.prenotazione.Entity.utente.DAOUser;
+
 @Entity
-@Table(name = "prenotazione")
+@Table(name = "prenotazioneVisita")
 public class Prenotazione {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

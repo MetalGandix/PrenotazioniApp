@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.prenotazione.SmtpMailSender;
-import app.prenotazione.Entity.DAOUser;
-
-import app.prenotazione.Entity.PrenotazioneCampo;
+import app.prenotazione.Entity.prenotazione_campo.PrenotazioneCampo;
+import app.prenotazione.Entity.utente.DAOUser;
 import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.PrenotazioneCampoRepository;
 
@@ -74,6 +73,6 @@ public class PrenotazioneCampoController {
     public List<PrenotazioneCampo> prendiVisitaDaUtente(Authentication a) {
         UserDetails userPrincipal = (UserDetails)a.getPrincipal();
         DAOUser utente = userRepository.findUserByUsername(userPrincipal.getUsername());
-        return (List<PrenotazioneCampo>) campoRep.findByPrenotazioneCampo(utente);
+        return (List<PrenotazioneCampo>) campoRep.findByUtentePrenotazione(utente);
     }
 }

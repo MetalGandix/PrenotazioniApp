@@ -8,8 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.Entity.UserRole;
+
+import app.prenotazione.Entity.utente.DAOUser;
+import app.prenotazione.Entity.utente.UserRole;
 import app.prenotazione.Repository.UserDaoRepository;
 import app.prenotazione.Repository.UserRoleRepository;
 

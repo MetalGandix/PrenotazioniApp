@@ -1,4 +1,4 @@
-package app.prenotazione.Entity;
+package app.prenotazione.Entity.prenotazione_campo;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import app.prenotazione.Entity.utente.DAOUser;
 
 @Entity
 @Table(name = "prenotazioneCampoEffettuata")
@@ -28,9 +30,6 @@ public class PrenotazioneCampoEffettuata {
 
     @Column
     private int numCampo;
-
-    @Column
-    private boolean illuminazione;
     
     @Column
     private boolean prenotato;
@@ -41,7 +40,7 @@ public class PrenotazioneCampoEffettuata {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID", referencedColumnName="id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private DAOUser prenotazioneCampo;
+    private DAOUser utentePrenotazione;
 
     public int getNumCampo() {
         return numCampo;
@@ -49,14 +48,6 @@ public class PrenotazioneCampoEffettuata {
 
     public void setNumCampo(int numCampo) {
         this.numCampo = numCampo;
-    }
-
-    public boolean isIlluminazione() {
-        return illuminazione;
-    }
-
-    public void setIlluminazione(boolean illuminazione) {
-        this.illuminazione = illuminazione;
     }
 
     public boolean isPrenotato() {
@@ -68,11 +59,11 @@ public class PrenotazioneCampoEffettuata {
     }
 
     public DAOUser getPrenotazioneCampo() {
-        return prenotazioneCampo;
+        return utentePrenotazione;
     }
 
-    public void setPrenotazioneCampo(DAOUser prenotazioneCampo) {
-        this.prenotazioneCampo = prenotazioneCampo;
+    public void setPrenotazioneCampo(DAOUser utentePrenotazione) {
+        this.utentePrenotazione = utentePrenotazione;
     }
 
     public long getId() {

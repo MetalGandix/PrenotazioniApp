@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import app.prenotazione.Entity.utente.DAOUser;
+
 @Entity
 public class ConfirmationToken {
     @Id

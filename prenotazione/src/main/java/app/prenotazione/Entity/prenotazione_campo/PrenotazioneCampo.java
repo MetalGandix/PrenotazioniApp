@@ -1,4 +1,4 @@
-package app.prenotazione.Entity;
+package app.prenotazione.Entity.prenotazione_campo;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -9,9 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import app.prenotazione.Entity.utente.DAOUser;
 
 @Entity
 @Table(name = "prenotazioneCampo")
@@ -27,12 +30,6 @@ public class PrenotazioneCampo {
     private String orario;
 
     @Column
-    private int numCampo;
-
-    @Column
-    private boolean illuminazione;
-    
-    @Column
     private boolean prenotato;
 
     @Column
@@ -41,22 +38,18 @@ public class PrenotazioneCampo {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID", referencedColumnName="id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private DAOUser prenotazioneCampo;
+    private DAOUser utentePrenotazione;
 
-    public int getNumCampo() {
-        return numCampo;
+    @OneToOne(targetEntity = Campo.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "campo_id")
+    private Campo campo;
+
+    public Campo getCampo() {
+        return campo;
     }
 
-    public void setNumCampo(int numCampo) {
-        this.numCampo = numCampo;
-    }
-
-    public boolean isIlluminazione() {
-        return illuminazione;
-    }
-
-    public void setIlluminazione(boolean illuminazione) {
-        this.illuminazione = illuminazione;
+    public void setCampo(Campo campo) {
+        this.campo = campo;
     }
 
     public boolean isPrenotato() {
@@ -68,17 +61,16 @@ public class PrenotazioneCampo {
     }
 
     public DAOUser getPrenotazioneCampo() {
-        return prenotazioneCampo;
+        return utentePrenotazione;
     }
 
-    public void setPrenotazioneCampo(DAOUser prenotazioneCampo) {
-        this.prenotazioneCampo = prenotazioneCampo;
+    public void setPrenotazioneCampo(DAOUser utentePrenotazione) {
+        this.utentePrenotazione = utentePrenotazione;
     }
 
     public long getId() {
         return id;
     }
-
 
     public LocalDate getData() {
         return data;

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.prenotazione.SmtpMailSender;
-import app.prenotazione.Entity.DAOUser;
-import app.prenotazione.Entity.Prenotazione;
+import app.prenotazione.Entity.prenotazione_visita.Prenotazione;
+import app.prenotazione.Entity.utente.DAOUser;
 import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.PrenotazioneRepository;
 

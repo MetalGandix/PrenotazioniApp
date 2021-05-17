@@ -1,4 +1,4 @@
-package app.prenotazione.Entity;
+package app.prenotazione.Entity.utente;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
