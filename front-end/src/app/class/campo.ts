@@ -1,22 +1,15 @@
 export class Campo {
 
-    // private long id;
-    
-    
-    // private LocalDate data;
+    public id: number;
+
+    numCampo: number;
 
 
-    // private String orario;
+    illuminazione: boolean;
 
-    
-    // private int numCampo;
 
-    
-    // private boolean illuminazione;
-    
-  
-    // private boolean prenotato;
+    utilizzato: boolean;
 
-    
-    // private String infoAggiuntiva;
+
+    nome?: string;
 }
