@@ -85,22 +85,24 @@
 
   </div>
   <div class="d-flex flex-row-reverse">
-    <button class="btn  btn-outline-warning" *ngIf="!visitor && !admin"  routerLink="/login">
+    <button class="p-2 btn  btn-outline-warning" *ngIf="!visitor && !admin"  routerLink="/login">
       Login
     </button>
-    <a *ngIf="visitor" style="color: yellow;" routerLink="/scelta-utente">
+    
+
+    <button class=" p-2 btn btn-outline-warning" (click)="logOut()" *ngIf="visitor || admin" >
+      Log out
+    </button>
+
+    <a class="nav-link text-light" *ngIf="visitor"  routerLink="/scelta-utente">
       {{ utente.name
       }}
     </a>
 
-    <a *ngIf="admin" style="color: yellow;" routerLink="/scelta-utente">
+    <a class="nav-link text-light" *ngIf="admin"  routerLink="/scelta-utente">
       {{ utente.name }}
 
     </a>
-
-    <button class="btn btn-light btn-outline-warning" (click)="logOut()" *ngIf="visitor || admin" >
-      Log out
-    </button>
   </div>
 
 </nav>
