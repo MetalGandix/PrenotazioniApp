@@ -55,6 +55,7 @@ public class PrenotazioneController {
         List<Prenotazione> prenotazione = visitaRep.findAll();
         return prenotazione ;
     }
+    
     // Metodo per vedere una singola visita dell'utente
     @GetMapping("/vediVisita/{id}")
     public Optional<Prenotazione> vediVisitaSingola(Authentication a, @PathVariable Long id) {
