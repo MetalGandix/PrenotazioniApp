@@ -49,8 +49,8 @@ export class SidenavComponent implements OnInit{
     shareReplay()
   );
 
-  public onSidenavClose = () => {
-    this.sidenavClose.emit();
-  }
+  // public onSidenavClose = () => {
+  //   this.sidenavClose.emit();
+  // }
 
 }

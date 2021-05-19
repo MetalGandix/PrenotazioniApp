@@ -1,77 +1,158 @@
+<nav class=" navbar navbar navbar-expand-md navbar-dark"
+  style="background-color: #007bff!important;" role="navigation">
+
+  <!-- navbar navbar-expand-lg navbar-light bg-light -->
+
+  <!-- <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">Fixed bottom</a>
+  </nav> -->
+
+
+  <a class="navbar-brand" routerLink="/home">
+    <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="40"
+      style="margin-right:5px;" class="d-inline-block" alt="">
+    Padel Team Torresi
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <ul class="navbar-nav bd-navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Info
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+          <a class="dropdown-item" routerLink="/chi-siamo">
+            Chi
+            siamo
+          </a>
+
+          <a class="dropdown-item" routerLink="/bacheca-eventi">
+            Bacheca
+            Eventi
+          </a>
+
+          <a class="dropdown-item" routerLink="/contatti">
+            Contatti
+          </a>
+
+          <a class="dropdown-item" routerLink="/mappa">
+            Percorso
+          </a>
+
+
+
+          <a class="dropdown-item" routerLink="/prenotazione-visita">
+            Prenota una
+            Visita
+          </a>
+
+        </div>
+
+
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/tariffa">
+          Le nostre
+          tariffe
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/socio">
+          Diventa un Socio
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link active" routerLink="/prenotazione-campo">
+          Prenota il Campo
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+    </ul>
+
+
+
+  </div>
+  <div class="d-flex flex-row-reverse">
+    <button class="btn  btn-outline-warning" *ngIf="!visitor && !admin"  routerLink="/login">
+      Login
+    </button>
+    <a *ngIf="visitor" style="color: yellow;" routerLink="/scelta-utente">
+      {{ utente.name
+      }}
+    </a>
+
+    <a *ngIf="admin" style="color: yellow;" routerLink="/scelta-utente">
+      {{ utente.name }}
+
+    </a>
+
+    <button class="btn btn-light btn-outline-warning" (click)="logOut()" *ngIf="visitor || admin" >
+      Log out
+    </button>
+  </div>
+
+</nav>
+
+
+
+
+
+
+<!-- 
+
 <mat-sidenav-container class="sidenav-container">
+
+
+
+
+
   <mat-sidenav #drawer class="sidenav" fixedInViewport #sidenav (click)="sidenav.toggle()"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
-    <mat-toolbar style="color: white;"><i>Menù</i></mat-toolbar>
+    <mat-toolbar style="color: white;">Menù</mat-toolbar>
     <mat-nav-list>
-      <a style="color: red;" mat-list-item routerLink="/home" routerLinkActive="active" (click)="onSidenavClose()">
-        <mat-icon>home</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Home</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/socio">
-        <mat-icon>edit</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Diventa un Socio</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/tariffa">
-        <mat-icon>euro_symbol</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Scopri le nostre
-            tariffe</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/bacheca-eventi">
-        <mat-icon>event_note</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Bacheca
-            Eventi</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/chi-siamo">
-        <mat-icon>account_circle</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Chi siamo</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/contatti">
-        <mat-icon>call</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Contatti</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/mappa">
-        <mat-icon>location_on</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Percorso</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a *ngIf="!visitor && !admin" style="color: blue;" mat-list-item routerLink="/login">
-        <mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Area riservata</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/prenotazione-visita">
-        <mat-icon>event</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Prenota una Visita</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/prenotazione-campo">
-        <mat-icon>event</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Prenota il Campo da
-            Padel/Tennis</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <!-- <a mat-list-item routerLink="/poesia"><mat-icon>queue_music</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Testi del Percorso Leopardiano</i></span></a> -->
-      <mat-divider></mat-divider>
-      <!-- <a mat-list-item routerLink="/poesia-specifica"><mat-icon>search</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Cerca un testo Leopardiano</i></span></a> -->
-      <mat-divider></mat-divider>
-      <a *ngIf="visitor" style="color: blue;" mat-list-item routerLink="/scelta-utente">
-        <mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>{{ utente.name }}</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a *ngIf="admin" style="color: blue;" mat-list-item routerLink="/scelta-utente">
-        <mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>{{ utente.name }} |
-            ADMIN</i></span>
-      </a>
-      <mat-divider></mat-divider>
-      <a (click)="logOut()" *ngIf="visitor || admin" style="color: red;" mat-list-item>
-        <mat-icon>exit_to_app</mat-icon><span style="margin-left: 10px;" class="nav-caption"><i>Log out</i></span>
-      </a>
-    </mat-nav-list>
+      <a style="color: red;"   routerLinkActive="active" (click)="onSidenavClose()">
+        home Home</span>
+      </a> -->
+
+
+
+
+
+
+
+
+<!-- <a  routerLink="/poesia">queue_music Testi del Percorso Leopardiano</span></a> -->
+
+<!-- <a  routerLink="/poesia-specifica">search Cerca un testo Leopardiano</span></a> -->
+
+
+<!-- </mat-nav-list>
   </mat-sidenav>
+
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
+
+      <span style="margin-left: 10px;"><i class="uptitle">Centro Culturale Giacomo Leopardi</span>
+
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon">menu
       </button>
-      <span style="margin-left: 10px;"><i class="uptitle">Centro Culturale Giacomo Leopardi</i></span>
     </mat-toolbar>
+
   </mat-sidenav-content>
-</mat-sidenav-container>
+
+</mat-sidenav-container> -->
