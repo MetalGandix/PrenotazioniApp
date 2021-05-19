@@ -1,4 +1,4 @@
-.card-signin {
+/* .card-signin {
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
@@ -21,9 +21,9 @@ h3 {
 
 h4 {
     font-family: "Times New Roman", Times, serif;
-}
+} */
 
-.btn
+/* .btn
 {
     font-size: 80%;
     border-radius: 5rem;
@@ -31,9 +31,9 @@ h4 {
     font-weight: bold;
     padding: 1rem;
     transition: all 0.2s;
-}
+} */
 
-
+/* 
 @media all and (max-width: 500px) {
     .h1 {
         font-family: "Times New Roman", Times, serif;
@@ -50,4 +50,4 @@ h4 {
     h4 {
         font-family: "Times New Roman", Times, serif;
     }
-}
+} */
