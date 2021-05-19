@@ -3,9 +3,9 @@
     --input-padding-y: .75rem;
   }
 
-  h5{
+  /* h5{
     font-family: "Times New Roman", Times, serif;
-  }
+  } */
   
   body {
     background: #87c1ff;
@@ -31,7 +31,7 @@
   .form-signin {
     width: 100%;
   }
-  
+/*   
   .form-signin .btn {
     font-size: 80%;
     border-radius: 5rem;
@@ -39,9 +39,9 @@
     font-weight: bold;
     padding: 1rem;
     transition: all 0.2s;
-  }
+  } */
   
-  .form-label-group {
+  /* .form-label-group {
     position: relative;
     margin-bottom: 1rem;
   }
@@ -63,15 +63,16 @@
     display: block;
     width: 100%;
     margin-bottom: 0;
+
     /* Override default `<label>` margin */
-    line-height: 1.5;
+    /* line-height: 1.5;
     color: #495057;
     border: 1px solid transparent;
     border-radius: .25rem;
     transition: all .1s ease-in-out;
-  }
+  } */ 
   
-  .form-label-group input::-webkit-input-placeholder {
+  /* .form-label-group input::-webkit-input-placeholder {
     color: transparent;
   }
   
@@ -111,11 +112,11 @@
   .btn-facebook {
     color: white;
     background-color: #3b5998;
-  }
+  } */
   
   /* Fallback for Edge
   -------------------------------------------------- */
-  
+/*   
   @supports (-ms-ime-align: auto) {
     .form-label-group>label {
       display: none;
@@ -126,7 +127,7 @@
   }
   
   /* Fallback for IE
-  -------------------------------------------------- */
+  -------------------------------------------------- 
   
   @media all and (-ms-high-contrast: none),
   (-ms-high-contrast: active) {
@@ -136,4 +137,38 @@
     .form-label-group input:-ms-input-placeholder {
       color: #777;
     }
+  } */
+
+  .bgmycolor{
+
+background-color: #007bff!important;
+color: antiquewhite;
+
+  }
+
+  .btnblue{
+
+ border-color: #007bff!important;
+    color: #007bff!important;
+    background-color: #ffffff00!important;
+
+  }
+  .btnblue:hover {
+
+    background-color:#007bff!important;
+    color: rgb(250, 250, 250)!important;
+  }
+
+
+  .btnwhite{
+
+    border-color: #ffffff!important;
+    color: #ffffff!important;
+    background-color:#007bff!important;
+
+  }
+  .btnwhite:hover {
+
+    background-color:#ffffff!important;
+    color: #007bff!important;
   }
