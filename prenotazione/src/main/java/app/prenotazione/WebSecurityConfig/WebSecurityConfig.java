@@ -66,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate","/user","/visita","/confirm-account", "/existUser/{username}", "/vediUtenti/{username}","/requestResetPassword/{username}", "/getUtenteFromToken/{token}", "/changePassword/{token}").permitAll()
 				.antMatchers("/vediVisite","/changeUserDetails", "/vediprenotazioniCampi").access("hasRole('ROLE_ADMIN')")
-				.antMatchers("/vediVisite","/changeUserDetails", "/prenotaCampo/{username}/{campo}/{id}").access("hasRole('ROLE_USER')")
+				.antMatchers("/vediVisite","/changeUserDetails","/vediprenotazioniCampi", "/prenotaCampo/{id}").access("hasRole('ROLE_USER')")
 				//.antMatchers("/visita").access("hasRole('ROLE_VISITATORE')")
 				/*.permitAll().antMatchers(HttpMethod.OPTIONS, "/**")
 				.permitAll().*/

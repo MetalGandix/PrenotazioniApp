@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div *ngIf="!visitor">
         <br>
         <h1 class="h1" style="font-size: 1.5rem;">Per prenotare il Campo devi effettuare il login</h1>
@@ -747,4 +747,11 @@
             </div>
 
         </div>
+    </div> -->
+
+    <div class="container" *ngFor="let p of prenotazioniEffettuate">
+        <div>{{i}} {{p.data}}</div>
+        <div>{{i}} {{p.orario}}</div>
+        <div>{{i}} {{p.campo.nome}}</div>
+        <div><button (click)="prenotaCampo(p)">Clicca per prenotare</button></div>
     </div>

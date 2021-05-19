@@ -79,8 +79,8 @@ public class PrenotazioneCampoController {
         return (List<PrenotazioneCampo>) campoRep.findByUtentePrenotazione(utente);
     }
 
-    @PutMapping("/prenotaCampo/{username}/{campo}/{id}")
-    public String prenotaCampo(Authentication authentication,@PathVariable Campo campo, @PathVariable Long id){
+    @PutMapping("/prenotaCampo/{id}")
+    public String prenotaCampo(Authentication authentication, @RequestBody Campo campo, @PathVariable Long id){
         UserDetails userPrincipal = (UserDetails)authentication.getPrincipal();
         DAOUser utente = userRepository.findUserByUsername(userPrincipal.getUsername());
         Optional<PrenotazioneCampo> prenotazione = campoRep.findById(id);

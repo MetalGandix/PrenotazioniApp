@@ -51,8 +51,12 @@ export class PrenotazioneCampoComponent implements OnInit {
   }
 
   //passare Id,Campo,Username
-  prenotaCampo(p: PrenotazioneCampo) {
-    this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
+  // prenotaCampo(p: PrenotazioneCampo) {
+  //   this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
+  // }
+
+  prenotaCampo(p: PrenotazioneCampo){
+    this.service.prenotazioneCampo(p.campo, p.id).subscribe()
   }
 
 }
