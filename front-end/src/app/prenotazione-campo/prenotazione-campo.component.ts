@@ -15,30 +15,54 @@ import { PrenotazioneCampo } from '../class/prenotazione-campo';
 export class PrenotazioneCampoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private router: Router,private service:PrenotazioneCampoService) { }
+    private router: Router, private service: PrenotazioneCampoService) {
 
-    visitor: boolean = false
-    admin: boolean = false
-    prenotazioneList: PrenotazioneCampo[]=[]
-    
+      this.prenotazione=new PrenotazioneCampo()
+
+     }
+
+  visitor: boolean = false
+  admin: boolean = false
+  prenotazioneList: PrenotazioneCampo[] = []
+  prenotazione:PrenotazioneCampo
+  prenotazioniEffettuate: PrenotazioneCampo[] = []
+  prenotazioniNonEffettuate: PrenotazioneCampo[] = []
+ 
+
   ngOnInit(): void {
-    if(sessionStorage.getItem("Role") === "ROLE_ADMIN"){
+    if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
       this.admin = true
-    }else if(sessionStorage.getItem("Role") === "ROLE_USER"){
+    } else if (sessionStorage.getItem("Role") === "ROLE_USER") {
       this.visitor = true
     }
 
-this.service.vediPrenotazioniCampi().subscribe(prenotazione => {
-  this.prenotazioneList = prenotazione
-console.log(this.prenotazioneList)
-})
+    this.service.vediPrenotazioniCampi().subscribe(prenotazione => {
+      this.prenotazioneList = prenotazione
+      this.prenotazioneList.forEach(p => {
 
+        console.log("Lista Prneotazioni: ",this.prenotazioneList)
+        
+        if(p.prenotato){
 
+          this.prenotazioniEffettuate.push(p)
+          console.log("Lista Prenotazioni Effettuate: ",this.prenotazioniEffettuate)
+        }else{
+          this.prenotazioniNonEffettuate.push(p)
+          console.log("Lista Prenotazioni Non Effettuate: ",this.prenotazioniNonEffettuate)
+
+        }
+        
+
+      })
+      
+    })
 
   }
 
+  //passare Id,Campo,Username
+prenotaCampo(p:PrenotazioneCampo){
+this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
+}
 
 
-
-  
 }
