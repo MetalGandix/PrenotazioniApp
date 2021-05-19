@@ -749,9 +749,10 @@
         </div>
     </div> -->
 
-    <div class="container" *ngFor="let p of prenotazioniEffettuate">
+    <div class="container" style="margin-top: 20px;" *ngFor="let p of prenotazioniNonEffettuate">
         <div>{{i}} {{p.data}}</div>
         <div>{{i}} {{p.orario}}</div>
         <div>{{i}} {{p.campo.nome}}</div>
-        <div><button (click)="prenotaCampo(p)">Clicca per prenotare</button></div>
+        <div><button class="btn btn-primary" (click)="prenotaCampo(p)">Clicca per prenotare</button></div>
+        <br>
     </div>
