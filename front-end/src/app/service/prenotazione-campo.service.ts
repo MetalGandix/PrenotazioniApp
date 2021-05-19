@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Campo } from '../class/campo';
 import { PrenotazioneCampo } from '../class/prenotazione-campo';
 import { User } from './authentication.service';
 
@@ -33,6 +34,10 @@ export class PrenotazioneCampoService {
   // public prendiUtenteDaPrenotazione(prenotazione: PrenotazioneCampo): Observable<User[]> {
   //   return this.http.get<User[]>(this.url + "prendiUtenteLoggatoxCampi/" + prenotazione)
   // }
+
+  public prenotazioneCampo(campo: Campo, id: number){
+    return this.http.put<PrenotazioneCampo>(this.url + "prenotaCampo/" + id, campo);
+  }
 
   public prendiPrenotazioneDaUtente(username: User): Observable<PrenotazioneCampo[]> {
     return this.http.get<PrenotazioneCampo[]>(this.url + "prendiVisitaUtente/" + username)

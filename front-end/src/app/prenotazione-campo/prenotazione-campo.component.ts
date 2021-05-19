@@ -14,20 +14,20 @@ import { PrenotazioneCampo } from '../class/prenotazione-campo';
 })
 export class PrenotazioneCampoComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-    private router: Router, private service: PrenotazioneCampoService) {
-
-      this.prenotazione=new PrenotazioneCampo()
-
-     }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: PrenotazioneCampoService
+  ) {
+    this.prenotazione = new PrenotazioneCampo()
+  }
 
   visitor: boolean = false
   admin: boolean = false
   prenotazioneList: PrenotazioneCampo[] = []
-  prenotazione:PrenotazioneCampo
+  prenotazione: PrenotazioneCampo
   prenotazioniEffettuate: PrenotazioneCampo[] = []
   prenotazioniNonEffettuate: PrenotazioneCampo[] = []
- 
 
   ngOnInit(): void {
     if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
@@ -35,34 +35,28 @@ export class PrenotazioneCampoComponent implements OnInit {
     } else if (sessionStorage.getItem("Role") === "ROLE_USER") {
       this.visitor = true
     }
-
     this.service.vediPrenotazioniCampi().subscribe(prenotazione => {
       this.prenotazioneList = prenotazione
       this.prenotazioneList.forEach(p => {
-
-        console.log("Lista Prneotazioni: ",this.prenotazioneList)
-        
-        if(p.prenotato){
-
+        if (p.prenotato) {
           this.prenotazioniEffettuate.push(p)
-          console.log("Lista Prenotazioni Effettuate: ",this.prenotazioniEffettuate)
-        }else{
+        } else {
           this.prenotazioniNonEffettuate.push(p)
-          console.log("Lista Prenotazioni Non Effettuate: ",this.prenotazioniNonEffettuate)
-
         }
-        
-
       })
-      
+      console.log("Lista Prneotazioni: ", this.prenotazioneList)
+      console.log("Lista Prenotazioni Effettuate: ", this.prenotazioniEffettuate)
+      console.log("Lista Prenotazioni Non Effettuate: ", this.prenotazioniNonEffettuate)
     })
-
   }
 
   //passare Id,Campo,Username
-prenotaCampo(p:PrenotazioneCampo){
-this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
-}
+  // prenotaCampo(p: PrenotazioneCampo) {
+  //   this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
+  // }
 
+  prenotaCampo(p: PrenotazioneCampo){
+    this.service.prenotazioneCampo(p.campo, p.id).subscribe()
+  }
 
 }
