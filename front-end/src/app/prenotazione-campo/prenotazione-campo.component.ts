@@ -17,7 +17,7 @@ export class PrenotazioneCampoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: PrenotazioneCampoService
+    private service: PrenotazioneCampoService,
   ) {
     this.prenotazione = new PrenotazioneCampo()
   }
@@ -57,6 +57,7 @@ export class PrenotazioneCampoComponent implements OnInit {
 
   prenotaCampo(p: PrenotazioneCampo){
     this.service.prenotazioneCampo(p.campo, p.id).subscribe()
+    window.location.reload();
   }
 
 }
