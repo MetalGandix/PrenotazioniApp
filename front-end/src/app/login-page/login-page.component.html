@@ -26,10 +26,17 @@
 
                               
                         <div *ngIf="booleanErrorToken" style="color: rgb(253, 253, 253);">
-                           <br> Devi confermare la tua mail prima di poter accedere.<br>
+                            Devi confermare la tua mail prima di poter accedere.<br>
+                          
+                           <br>
                         </div>
+                        <div *ngIf=" connessioneFallita" style="color: rgb(253, 253, 253);">
+                             Connessione al Server Interrotta<br>
+                            
+                            
+                         </div>
                         
-                        <div style="margin-bottom: 20px; color: rgb(250, 250, 250); text-align: center;" *ngIf="message1">
+                        <div style="margin-bottom: 20px; color: rgb(250, 250, 250); text-align: center;" *ngIf="loginErrato">
                             Il login è errato
                         </div>
                         <button class="btn  btnyellow " style="width:50%;margin-left: 25%;" (click)=checkLogin() type="submit">Login</button>
