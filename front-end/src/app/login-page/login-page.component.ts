@@ -49,6 +49,11 @@ export class LoginPageComponent implements OnInit {
                   }
                 })
               }
+            },
+            error => {
+              if(error.status != 200){
+                this.message1 = true
+              }
             })
         }
       }
