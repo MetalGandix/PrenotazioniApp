@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.prenotazione.SmtpMailSender;
 import app.prenotazione.Entity.prenotazione_campo.PrenotazioneCampo;
 import app.prenotazione.Entity.utente.DAOUser;
 import app.prenotazione.Jwt.JwtUserDetailsService;
@@ -33,16 +32,11 @@ public class PrenotazioneCampoController {
     private PrenotazioneCampoRepository campoRep;
 
     @Autowired
-    private SmtpMailSender smtpMailSender;
-
-    @Autowired
     private JwtUserDetailsService userRepository;
 
     @PostMapping("/prenotazioneCampo")
-    String addCampo(Authentication a, @RequestBody PrenotazioneCampo campo) throws MessagingException{
-        smtpMailSender.send("prenotazioni.app.padel@gmail.com", "Prenotazione campo" , "Visita prenotata da " + campo.getPrenotazioneCampo().getlastname() + " \nper il giorno: " + campo.getData() + " alle ore: " + campo.getOrario());
-        campo.setPrenotazioneCampo(prendiUtenteLoggatoxCampi(a));
-        campoRep.save(campo);
+    String addCampo(Authentication a, @RequestBody PrenotazioneCampo prenotazione) throws MessagingException{
+        campoRep.save(prenotazione);
         return "Visita correttamente inviata";
     }
 

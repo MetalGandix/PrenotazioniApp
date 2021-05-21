@@ -37,6 +37,13 @@ export class PrenotazioneCampoComponent implements OnInit {
     }
     this.service.vediPrenotazioniCampi().subscribe(prenotazione => {
       this.prenotazioneList = prenotazione
+      for(let a: number = 0; this.prenotazioneList.length < 20; a++){
+        let orario=0
+        orario ++
+        let orarioString = orario.toString();
+        this.prenotazione.orario = orarioString
+        this.prenotazioneList.push(this.prenotazione)
+      }
       this.prenotazioneList.forEach(p => {
         if (p.prenotato) {
           this.prenotazioniEffettuate.push(p)
