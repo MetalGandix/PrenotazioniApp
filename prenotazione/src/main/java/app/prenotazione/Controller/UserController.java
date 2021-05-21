@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -52,14 +53,19 @@ public class UserController {
     private PasswordEncoder bcryptEncoder;
 
     @PostMapping("/user")
-    String addUser(@RequestBody DAOUser user) throws MessagingException {
-        ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(user));
-        confirmationTokenRepository.save(confirmationToken);
-        String stringaMail = "Per confermare l'account, per favore clicca " + "<a href=\""
-                + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken() + "\">"
-                + "qua" + "</a>";
-        smtpMailSender.send(user.getUsername(), "Conferma la tua email", stringaMail);
-        return "Mail mandata";
+    ResponseEntity<String> addUser(@RequestBody DAOUser user) throws MessagingException {
+        if (repositoryUtente.findByUsername(user.getUsername()) == null) {
+            ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(user));
+            confirmationTokenRepository.save(confirmationToken);
+            String stringaMail = "Per confermare l'account, per favore clicca " + "<a href=\""
+                    + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken() + "\">"
+                    + "qua" + "</a>";
+            smtpMailSender.send(user.getUsername(), "Conferma la tua email", stringaMail);
+            return ResponseEntity.ok("Utente aggiunto correttamente");
+        } else {
+            return ResponseEntity.badRequest()
+            .body("Utente con questa email già esistente.");
+        }
     }
 
     @PatchMapping("/nominaAdmin/{id}")
