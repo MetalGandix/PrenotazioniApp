@@ -23,7 +23,7 @@ export class PrenotazioneCampoService {
     return this.http.get<PrenotazioneCampo[]>(this.url + "vediprenotazioniCampi");
   }
 
-  public salvaPrenotazioneCampo(prenotazione: PrenotazioneCampo) {
+  public generaPrenotazioniCampo(prenotazione: PrenotazioneCampo) {
     return this.http.post<PrenotazioneCampo>(this.url + "prenotazioneCampo", prenotazione);
   }
 
@@ -42,7 +42,6 @@ export class PrenotazioneCampoService {
   public prendiPrenotazioneDaUtente(username: User): Observable<PrenotazioneCampo[]> {
     return this.http.get<PrenotazioneCampo[]>(this.url + "prendiVisitaUtente/" + username)
   }
-
 
   
 

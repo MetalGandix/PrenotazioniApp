@@ -36,7 +36,9 @@ export class PrenotazioneCampoComponent implements OnInit {
       this.visitor = true
     }
     this.service.vediPrenotazioniCampi().subscribe(prenotazione => {
+
       this.prenotazioneList = prenotazione
+
       for(let a: number = 0; this.prenotazioneList.length < 20; a++){
         let orario=0
         orario ++
@@ -67,4 +69,22 @@ export class PrenotazioneCampoComponent implements OnInit {
     window.location.reload();
   }
 
+
+  // generaPrenotazioniCampo(h:Hour){
+    
+  //   // this.prenotazioneList = prenotazione
+
+  //   for(let a: number = 0; this.prenotazioneList.length < 20; a++){
+      
+  //     orario ++
+  //     let orarioString = orario.toString();
+  //     this.prenotazione.orario = orarioString
+  //     this.service.generaPrenotazioniCampo(this.prenotazione).subscribe()
+  //   }
+
+   
+  // }
+
+
 }
+
