@@ -38,7 +38,14 @@
         color: black!important;
         background-color:#ffc107!important;
     
-      }
+      }   
+      
+       .btnyellow:hover,a {
+        border-color: #ffc107!important;
+    
+        background-color:#ffffff00!important;
+       color: #ffc107!important;
+      } 
 
 /* .card-signin {
     border: 0;
