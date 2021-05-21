@@ -1,16 +1,16 @@
-<div class="container" style=" height: 780px;">
+<div class="container" style=" height: 780px;color: rgb(255, 255, 255);">
  
   <!-- <body> -->
     <div class="row" >
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 
-    <div class="card card-body card-signin my-5">
-      <h5  class="card-title text-center"><b>Italian Padel Team Torresi<br><br>Registrazione</b></h5>
+    <div class="card card-body card-signin my-5 shadow centereddiv bgmycolor" >
+      <h2  class="card-title text-center">Italian Padel Team Torresi<br><br>Registrazione</h2>
       
       <form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
         <div class="form-label-group">
-          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Email</p>
+          <p _ngcontent-mcm-c63="" style="color: rgb(255, 255, 255);">Email</p>
           <!-- <label for="username">Email</label> -->
           <input type="text" [(ngModel)]="user.username" class="form-control" id="username" name="username"
             placeholder="Enter your email address" required #username="ngModel" (keyup)="existUser()"
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-label-group">
-          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Nome</p>
+          <p _ngcontent-mcm-c63="" style="color: rgb(255, 255, 255);">Nome</p>
           <!-- <label for="name">Nome</label> -->
           <input type="text" [(ngModel)]="user.name" required minlength="2" class="form-control" id="name" name="name"
             placeholder="Enter your name" required #name="ngModel">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-label-group">
-          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Cognome</p>
+          <p _ngcontent-mcm-c63="" style="color: rgb(255, 255, 255);">Cognome</p>
           <!-- <label for="lastName">Cognome</label> -->
           <input type="text" [(ngModel)]="user.lastname" required minlength="2" class="form-control" id="lastName"
             name="lastName" placeholder="Enter your last name" required #lastName="ngModel">
@@ -63,7 +63,7 @@
 
 
         <div class="form-label-group">
-          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Password</p>
+          <p _ngcontent-mcm-c63="" style="color: rgb(255, 255, 255);">Password</p>
           <!-- <label for="password">Password</label> -->
           <input type="password" [(ngModel)]="user.password" required minlength="7" class="form-control" id="password"
             name="password" placeholder="Enter your password" required #password="ngModel">
@@ -78,7 +78,7 @@
         </div>
 
         <div class="form-label-group">
-          <p _ngcontent-mcm-c63="" style="color: rgb(184, 17, 17);">Cellulare</p>
+          <p _ngcontent-mcm-c63="" style="color: rgb(255, 255, 255);">Cellulare</p>
           <!-- <label for="name">Nome</label> -->
           <input type="text" [(ngModel)]="user.cellulare" required minlength="6" class="form-control" id="cellulare" name="cellulare"
             placeholder="Enter your phone" required #cellulare="ngModel">
@@ -98,7 +98,7 @@
             <input type="checkbox" #privacy_accett="ngModel" class="form-check-input" id="privacy" name="privacy"
               [(ngModel)]="user.privacy_accett" required>
             <label class="form-check-label" for="exampleCheck1">Accetta le nostre<a data-toggle="modal"
-                data-target="#exampleModalCenter" style="color: blue;"> condizioni</a>*</label>
+                data-target="#exampleModalCenter" style="color: rgb(255, 255, 255);text-decoration: underline;"> condizioni</a>*</label>
             <!--<h1>Condizioni d'uso</h1>
         
             <h1>Benvenuti su CentroCulturaleGL</h1>
@@ -107,21 +107,21 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            <div class="modal fade text-dark" id="exampleModalCenter" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title" id="exampleModalLongTitle">Benvenuti su CentroCulturaleGL</h1>
+                    <h1 class="modal-title" id="exampleModalLongTitle">Benvenuti al Padel Team Torresi</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body text-dark">
                     <p>Le presenti Condizioni d'uso (o "Condizioni") disciplinano l'uso dell'app, tranne nei casi di
                       esplicita indicazione circa l'applicazione di condizioni separate (diverse dalle presenti), e
                       forniscono informazioni sul Servizio AmicoLeopardi (il "Servizio"), descritto di seguito.
-                      Creando un account AmicoLeopardi o usando l'applicazione AmicoLeopardi, l'utente accetta le presenti
+                      Creando un account AmicoLeopardi o usando l'applicazione del Padel in questione, l'utente accetta le presenti
                       Condizioni.</p>
                   </div>
                   <div class="modal-footer">
@@ -149,13 +149,13 @@
         </div> -->
 
         <br>
-        <button type="submit" class="btn btn-lg btn-google btn-block text-uppercase" [disabled]="!userForm.form.valid || userExist"
+        <button type="submit" class="btn btnyellow" style="width:50%;margin-left: 25%;" [disabled]="!userForm.form.valid || userExist"
            data-toggle="modal" data-target="#registrazione"><i _ngcontent-ket-c63="" class="fab fa-google mr-2"></i>Registrati</button>
           <hr _ngcontent-qdw-c63="" class="my-4">
         <!-- Modal -->
         <div class="modal fade" id="registrazione" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered text-dark" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title" id="exampleModalLongTitle">La registrazione è andata a buon fine.</h1>
@@ -163,7 +163,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body text-dark">
                 <p>Grazie per aver effettuato la registrazione sulla nostra applicazione<br>Abbiamo inviato una email per permetterle di confermare la registrazione.</p>
               </div>
               <div class="modal-footer">
@@ -175,17 +175,16 @@
       </form>
       
       <div>
-        <button routerLink="/login" class="btn btn-lg btn-primary btn-block text-uppercase"
-          style="display:block; margin-left: auto; margin-right: auto; margin-top: 5%;">Torna al login</button>
+        <button routerLink="/login"class="btn  btn-dark btnwhite " style="width:50%;margin-left: 25%;">Vai al login</button>
         <!-- <a style="color: red;" routerLink="/login">Torna al login</a> -->
       </div>
       <br>
       <br>
-      <div>
+      <!-- <div>
         <button routerLink="/home" class="btn btn-lg btn-primary btn-block text-uppercase"
           style="display:block; margin-left: auto; margin-right: auto;">Torna alla Home</button>
-        <!-- <a style="color: red;" routerLink="/home">Torna alla home</a> -->
-      </div>
+        
+      </div> -->
     </div>
   </div>
   </div>

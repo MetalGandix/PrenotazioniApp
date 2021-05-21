@@ -1,4 +1,11 @@
 
+.centereddiv{
+    position: absolute;
+    top: 50%;
+    
+  }
+
+
 .card {
     width: 250px;
 }
