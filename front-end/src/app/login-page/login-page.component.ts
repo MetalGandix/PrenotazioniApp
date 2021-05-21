@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
   username = ''
   password = ''
   invalidLogin = false
-  message1: boolean = false
+  loginErrato: boolean = false
   refresha: number = 1
   booleanErrorToken: boolean = false
   booleanGet: boolean = false
@@ -52,13 +52,13 @@ export class LoginPageComponent implements OnInit {
             },
             error => {
               if(error.status != 200){
-                this.message1 = true
+                this.loginErrato = true
               }
             })
         }
       }
       else{
-        this.message1 = true
+        this.loginErrato = true
       }
     })
   }
