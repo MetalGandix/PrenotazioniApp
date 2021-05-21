@@ -34,6 +34,9 @@ export class LoginPageComponent implements OnInit {
 
 
   checkLogin() {
+    if(this.username == ''){
+      this.loginErrato = true
+    }
     this.gestioneUtenteService.findUtenteSingoloLogin(this.username).subscribe(u => {
       if (u != null) {
         this.user = u

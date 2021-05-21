@@ -35,7 +35,7 @@ public class PrenotazioneCampoController {
     private JwtUserDetailsService userRepository;
 
     @PostMapping("/prenotazioneCampo")
-    String addCampo(Authentication a, @RequestBody PrenotazioneCampo prenotazione) throws MessagingException{
+    String addPrenotazione(Authentication a, @RequestBody PrenotazioneCampo prenotazione) throws MessagingException{
         campoRep.save(prenotazione);
         return "Visita correttamente inviata";
     }
