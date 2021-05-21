@@ -1,3 +1,45 @@
+
+.bgmycolor{
+
+    background-color: #007bff!important;
+    color: antiquewhite;
+    
+      }
+    
+      .btnblue{
+    
+     border-color: #007bff!important;
+        color: #007bff!important;
+        background-color: #ffffff00!important;
+    
+      }
+      .btnblue:hover {
+    
+        background-color:#007bff!important;
+        color: rgb(250, 250, 250)!important;
+      }
+    
+    
+      .btnwhite{
+    
+        border-color: #ffffff!important;
+        color: #ffffff!important;
+        background-color:#007bff!important;
+    
+      }
+      .btnwhite:hover {
+    
+        background-color:#ffffff!important;
+        color: #007bff!important;
+      }
+      .btnyellow{
+    
+        border-color: #ffc107!important;
+        color: black!important;
+        background-color:#ffc107!important;
+    
+      }
+
 /* .card-signin {
     border: 0;
     border-radius: 1rem;
