@@ -27,24 +27,18 @@ export class ForgotPasswordComponent implements OnInit {
       }
       this.service.getUtenteFromToken(this.token).subscribe(utente => {
         this.user = utente
-        console.log("Utente trovato: ", this.user)
       })
-      console.log(token)
     })
   }
 
   requestResetPassword() {
-    console.log(this.username)
     this.service.requestResetPassword(this.username).subscribe()
   }
 
 cambiaPassword() {
     if (this.tokenExist) {
-      console.log(this.password)
       this.user.password = this.password;
-      console.log(this.user)
       let subscriber = this.service.changePasswordUserNotAuthenticated(this.user, this.token).subscribe()
-      console.log(subscriber)
       if(subscriber){
         this.routerLink.navigate(['/login'])
       }else{

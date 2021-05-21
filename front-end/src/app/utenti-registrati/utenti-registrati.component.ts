@@ -22,7 +22,6 @@ export class UtentiRegistratiComponent implements OnInit {
     this.admin = sessionStorage.getItem("Role") === "ROLE_ADMIN"
     this.service.findAll().subscribe(data => {
       this.utente = data
-      console.log(this.utente)
       this.spinner.hide()
     })
   }

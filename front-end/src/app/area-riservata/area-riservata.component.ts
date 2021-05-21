@@ -27,22 +27,11 @@ export class AreaRiservataComponent implements OnInit {
     this.service.findAll().subscribe(p => {
       this.prenotazione = p
       this.spinner.hide();
-      // console.log("Visite che devono avvenire: ", this.prenotazione)
     })
-    // this.service.findVisiteCancellate().subscribe(e => {
-    //   this.prenotazioniEliminate = e
-    //   console.log("Visite eliminate: ", this.prenotazioniEliminate)
-    // })
-    // this.service.findVisiteAvvenute().subscribe(e => {
-    //   this.prenotazioniAvvenute = e
-    //   console.log("Visite completate con successo: ", this.prenotazioniAvvenute)
-    //   
-    // })
   }
 
   cancellaPrenotazione(id: number) {
     this.spinner.show();
-    console.log("id: ", id)
     this.service.deletePrenotazione(id).subscribe()
     setTimeout(function(){
       window.location.reload();

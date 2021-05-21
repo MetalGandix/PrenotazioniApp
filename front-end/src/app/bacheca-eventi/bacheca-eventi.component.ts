@@ -51,23 +51,6 @@ export class BachecaEventiComponent implements OnInit {
       this.utente = data
       console.log(this.utente)
     })
-    console.log("Session storage", sessionStorage.getItem('username'))
-
-    // this.service.findEvents().subscribe(p => {
-    //   this.eventi = p
-    //   this.eventi.forEach(e => {
-    //     this.httpClient.get("http://localhost:8080/image/get/" + e.evento_immagine.name).subscribe(
-    //       res => {
-    //         this.retrieveResonse = res
-    //         this.base64Data = this.retrieveResonse.picByte;
-    //         e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
-    //         this.spinner.hide();
-
-    //       }
-    //     )
-    //   })
-    //   console.log(this.eventi)
-    // })
   }
 
   deleteEvento(id: number) {
