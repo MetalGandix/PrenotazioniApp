@@ -47,56 +47,20 @@
        color: #ffc107!important;
       } 
 
-/* .card-signin {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  }
-  
-  .container {
-    margin-top: 20px;
-    margin-bottom: 10%;
-    text-align: center;
-    
-}
-
-h1 {
-    font-family: "Times New Roman", Times, serif;
-}
-
-h3 {
-    font-family: "Times New Roman", Times, serif;
-}
-
-h4 {
-    font-family: "Times New Roman", Times, serif;
-} */
-
-/* .btn
-{
-    font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
-} */
-
-/* 
-@media all and (max-width: 500px) {
-    .h1 {
-        font-family: "Times New Roman", Times, serif;
+      .custom-day {
         text-align: center;
-        font-size: large;
-    }
-    .container {
-        margin-top: 20px;
-        margin-bottom: 10%;
-    }
-    h3 {
-        font-family: "Times New Roman", Times, serif;
-    }
-    h4 {
-        font-family: "Times New Roman", Times, serif;
-    }
-} */
+        padding: 0.185rem 0.25rem;
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+      }
+      .custom-day.focused {
+        background-color: #e6e6e6;
+      }
+      .custom-day.range, .custom-day:hover {
+        background-color: rgb(2, 117, 216);
+        color: white;
+      }
+      .custom-day.faded {
+        background-color: rgba(2, 117, 216, 0.5);
+      }

@@ -6,6 +6,7 @@ import { stringify } from 'querystring';
 import { NgxSpinnerService } from "ngx-spinner";
 import { PrenotazioneCampoService } from '../service/prenotazione-campo.service';
 import { PrenotazioneCampo } from '../class/prenotazione-campo';
+import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-prenotazione-campo',
@@ -15,11 +16,12 @@ import { PrenotazioneCampo } from '../class/prenotazione-campo';
 export class PrenotazioneCampoComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private service: PrenotazioneCampoService,
+    calendar: NgbCalendar
   ) {
-    this.prenotazione = new PrenotazioneCampo()
+    this.prenotazione = new PrenotazioneCampo(),
+    this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
 
   visitor: boolean = false
@@ -69,22 +71,32 @@ export class PrenotazioneCampoComponent implements OnInit {
     window.location.reload();
   }
 
+  hoveredDate: NgbDate | null = null;
 
-  // generaPrenotazioniCampo(h:Hour){
-    
-  //   // this.prenotazioneList = prenotazione
+  fromDate: NgbDate;
+  toDate: NgbDate | null = null;
 
-  //   for(let a: number = 0; this.prenotazioneList.length < 20; a++){
-      
-  //     orario ++
-  //     let orarioString = orario.toString();
-  //     this.prenotazione.orario = orarioString
-  //     this.service.generaPrenotazioniCampo(this.prenotazione).subscribe()
-  //   }
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
 
-   
-  // }
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
 
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+  }
 
 }
-

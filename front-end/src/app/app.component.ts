@@ -8,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent implements OnInit {
 
-  title = 'front-end-leopardi';
+  title = 'prenotazione-app';
 
   showFiller = false;
   ngOnInit() {
-
     let cc = window as any;
     cc.cookieconsent.initialise({
       palette: {
@@ -26,7 +25,7 @@ export class AppComponent implements OnInit {
       },
       theme: "classic",
       content: {
-        message: "Giacomo Leopardi APP utilizza coockie per assicurarsi che tu abbia la miglior esperienza sulla sua piattaforma.",
+        message: "La app padel-macerata utilizza coockie per assicurarsi che tu abbia la miglior esperienza sulla sua piattaforma.",
         dismiss: "Accetto",
         link: "Informazioni",
         href: "/data-privacy"
