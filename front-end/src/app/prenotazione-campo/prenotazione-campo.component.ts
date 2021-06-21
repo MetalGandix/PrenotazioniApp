@@ -6,7 +6,7 @@ import { stringify } from 'querystring';
 import { NgxSpinnerService } from "ngx-spinner";
 import { PrenotazioneCampoService } from '../service/prenotazione-campo.service';
 import { PrenotazioneCampo } from '../class/prenotazione-campo';
-import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-prenotazione-campo',
@@ -22,14 +22,21 @@ export class PrenotazioneCampoComponent implements OnInit {
     this.prenotazione = new PrenotazioneCampo(),
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.model = calendar.getToday();
   }
 
+  model: NgbDateStruct;
   visitor: boolean = false
   admin: boolean = false
   prenotazioneList: PrenotazioneCampo[] = []
   prenotazione: PrenotazioneCampo
   prenotazioniEffettuate: PrenotazioneCampo[] = []
   prenotazioniNonEffettuate: PrenotazioneCampo[] = []
+  disabled: boolean = true
+  
+  disabledDates:NgbDateStruct[]=[
+    {year:2019,month:2,day:26}
+  ]
 
   ngOnInit(): void {
     if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
@@ -41,13 +48,14 @@ export class PrenotazioneCampoComponent implements OnInit {
 
       this.prenotazioneList = prenotazione
 
-      for(let a: number = 0; this.prenotazioneList.length < 20; a++){
-        let orario=0
-        orario ++
-        let orarioString = orario.toString();
-        this.prenotazione.orario = orarioString
-        this.prenotazioneList.push(this.prenotazione)
-      }
+      // for(let a: number = 0; this.prenotazioneList.length < 20; a++){
+      //   let orario=0
+      //   orario ++
+      //   let orarioString = orario.toString();
+      //   this.prenotazione.orario = orarioString
+      //   this.prenotazioneList.push(this.prenotazione)
+      // }
+
       this.prenotazioneList.forEach(p => {
         if (p.prenotato) {
           this.prenotazioniEffettuate.push(p)
@@ -55,6 +63,7 @@ export class PrenotazioneCampoComponent implements OnInit {
           this.prenotazioniNonEffettuate.push(p)
         }
       })
+      
       console.log("Lista Prneotazioni: ", this.prenotazioneList)
       console.log("Lista Prenotazioni Effettuate: ", this.prenotazioniEffettuate)
       console.log("Lista Prenotazioni Non Effettuate: ", this.prenotazioniNonEffettuate)
@@ -98,5 +107,8 @@ export class PrenotazioneCampoComponent implements OnInit {
   isRange(date: NgbDate) {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
   }
+
+  isDisabled=(date:NgbDateStruct,current: {month: number,year:number})=>
+  this.disabledDates.find(x=>new NgbDate(2021,6,20).equals(date))?true:false;
 
 }
