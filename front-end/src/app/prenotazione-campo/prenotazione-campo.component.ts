@@ -33,10 +33,11 @@ export class PrenotazioneCampoComponent implements OnInit {
   prenotazioniEffettuate: PrenotazioneCampo[] = []
   prenotazioniNonEffettuate: PrenotazioneCampo[] = []
   disabled: boolean = true
-  
-  disabledDates:NgbDateStruct[]=[
-    {year:2019,month:2,day:26}
-  ]
+  disableArrived: Date = new Date();
+  hoveredDate: NgbDate | null = null;
+  fromDate: NgbDate;
+  toDate: NgbDate | null = null;
+  disabledDates:NgbDateStruct[]=[]
 
   ngOnInit(): void {
     if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
@@ -48,14 +49,6 @@ export class PrenotazioneCampoComponent implements OnInit {
 
       this.prenotazioneList = prenotazione
 
-      // for(let a: number = 0; this.prenotazioneList.length < 20; a++){
-      //   let orario=0
-      //   orario ++
-      //   let orarioString = orario.toString();
-      //   this.prenotazione.orario = orarioString
-      //   this.prenotazioneList.push(this.prenotazione)
-      // }
-
       this.prenotazioneList.forEach(p => {
         if (p.prenotato) {
           this.prenotazioniEffettuate.push(p)
@@ -64,26 +57,24 @@ export class PrenotazioneCampoComponent implements OnInit {
         }
       })
       
+      this.prenotazioniNonEffettuate.forEach(a => {
+        this.disableArrived = a.data
+        let yearValue: string = this.disableArrived.toString().split("-")[0]
+        let monthValue = this.disableArrived.toString().split("-")[1]
+        let dayValue = this.disableArrived.toString().split("-")[2]
+        this.disabledDates.push({ year: parseInt(yearValue), month: parseInt(monthValue), day: parseInt(dayValue)})
+      })
+
       console.log("Lista Prneotazioni: ", this.prenotazioneList)
       console.log("Lista Prenotazioni Effettuate: ", this.prenotazioniEffettuate)
       console.log("Lista Prenotazioni Non Effettuate: ", this.prenotazioniNonEffettuate)
     })
   }
 
-  //passare Id,Campo,Username
-  // prenotaCampo(p: PrenotazioneCampo) {
-  //   this.service.salvaPrenotazioneCampo(this.prenotazione).subscribe()
-  // }
-
   prenotaCampo(p: PrenotazioneCampo){
     this.service.prenotazioneCampo(p.campo, p.id).subscribe()
     window.location.reload();
   }
-
-  hoveredDate: NgbDate | null = null;
-
-  fromDate: NgbDate;
-  toDate: NgbDate | null = null;
 
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
@@ -108,7 +99,6 @@ export class PrenotazioneCampoComponent implements OnInit {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
   }
 
-  isDisabled=(date:NgbDateStruct,current: {month: number,year:number})=>
-  this.disabledDates.find(x=>new NgbDate(2021,6,20).equals(date))?true:false;
-
+  isDisabled = (date:NgbDateStruct,current: {month: number,year:number})=>
+  this.disabledDates.find(x=>new NgbDate(x.year,x.month,x.day).equals(date))?true:false;
 }

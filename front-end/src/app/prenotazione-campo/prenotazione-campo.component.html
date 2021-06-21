@@ -8,6 +8,7 @@
         [class.focused]="focused"
         [class.range]="isRange(date)"
         [class.faded]="isHovered(date) || isInside(date)"
+        [class.isDisabled]="isDisabled(date)"
         (mouseenter)="hoveredDate = date"
         (mouseleave)="hoveredDate = null">
     {{ date.day }}
@@ -18,7 +19,3 @@
 
 <pre>From: {{ fromDate | json }} </pre>
 <pre>To: {{ toDate | json }} </pre>
-
-<button class="btn btn-sm btn-outline-{{disabled ? 'danger' : 'success'}}" (click)="disabled = !disabled">
-    {{ disabled ? "disabled" : "enabled"}}
-  </button>
