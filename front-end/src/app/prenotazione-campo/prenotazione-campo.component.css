@@ -55,7 +55,7 @@
         width: 2rem;
       }
       .custom-day.focused {
-        background-color: #e6e6e6;
+        background-color: rgb(52, 160, 255);
       }
       .custom-day.range, .custom-day:hover {
         background-color: rgb(2, 117, 216);
@@ -67,4 +67,5 @@
 
       .isDisabled{
         background-color: red;
+        pointer-events: none;
       }

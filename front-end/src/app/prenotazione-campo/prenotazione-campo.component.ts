@@ -26,6 +26,7 @@ export class PrenotazioneCampoComponent implements OnInit {
   }
 
   model: NgbDateStruct;
+  date: {year: number, month: number};
   visitor: boolean = false
   admin: boolean = false
   prenotazioneList: PrenotazioneCampo[] = []
@@ -57,7 +58,7 @@ export class PrenotazioneCampoComponent implements OnInit {
         }
       })
       
-      this.prenotazioniNonEffettuate.forEach(a => {
+      this.prenotazioneList.forEach(a => {
         this.disableArrived = a.data
         let yearValue: string = this.disableArrived.toString().split("-")[0]
         let monthValue = this.disableArrived.toString().split("-")[1]

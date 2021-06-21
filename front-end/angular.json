@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "front-end-leopardi": {
+    "prenotazioni-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "front-end-leopardi:build"
+            "browserTarget": "prenotazioni-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "front-end-leopardi:build:production"
+              "browserTarget": "prenotazioni-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "front-end-leopardi:build"
+            "browserTarget": "prenotazioni-app:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "front-end-leopardi:serve"
+            "devServerTarget": "prenotazioni-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "front-end-leopardi:serve:production"
+              "devServerTarget": "prenotazioni-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "front-end-leopardi",
+  "defaultProject": "prenotazioni-app",
   "cli": {
     "analytics": "e8a72ea7-977b-4672-ab28-38b2d0154166"
   }

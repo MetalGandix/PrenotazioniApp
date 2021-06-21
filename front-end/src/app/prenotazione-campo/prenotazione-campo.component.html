@@ -1,13 +1,11 @@
 <p>Example of the range selection</p>
 
-<ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" [(ngModel)]="model" outsideDays="hidden" [markDisabled]="isDisabled">
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"[dayTemplate]="t" outsideDays="hidden" [markDisabled]="isDisabled">
 </ngb-datepicker>
 
 <ng-template #t let-date let-focused="focused">
   <span class="custom-day"
         [class.focused]="focused"
-        [class.range]="isRange(date)"
-        [class.faded]="isHovered(date) || isInside(date)"
         [class.isDisabled]="isDisabled(date)"
         (mouseenter)="hoveredDate = date"
         (mouseleave)="hoveredDate = null">

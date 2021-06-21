@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('front-end-leopardi app is running!');
+    expect(page.getTitleText()).toEqual('prenotazioni-app app is running!');
   });
 
   afterEach(async () => {
