@@ -1,3 +1,4 @@
+<div *ngIf="visitor" class="container" style="text-align-last: center; margin-top: 20px;">
 <p>Example of the range selection</p>
 
 <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"[dayTemplate]="t" outsideDays="hidden" [markDisabled]="isDisabled">
@@ -12,8 +13,9 @@
     {{ date.day }}
   </span>
 </ng-template>
+</div>
 
-<hr>
-
-<pre>From: {{ fromDate | json }} </pre>
-<pre>To: {{ toDate | json }} </pre>
+<div *ngIf="!visitor" class="container" style="text-align-last: center; margin-top: 20px;">
+  <p>Attualmente non sei loggato</p>
+<button class="btn btn-primary" routerLink="/login"> Vai al login </button>
+</div>
