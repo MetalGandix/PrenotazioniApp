@@ -4,7 +4,6 @@ import { AreaRiservataComponent } from './area-riservata/area-riservata.componen
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { MappaComponent } from './mappa/mappa.component';
 import { PrenotazioneVisitaComponent } from './prenotazione-visita/prenotazione-visita.component';
 import { RegistrazionePageComponent } from './registrazione-page/registrazione-page.component';
 import { SceltaUtenteComponent } from './scelta-utente/scelta-utente.component';
@@ -24,7 +23,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'mappa', component: MappaComponent },
   { path: 'chi-siamo', component: ChiSiamoComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'registrazione', component: RegistrazionePageComponent },

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MappaComponent } from './mappa/mappa.component';
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegistrazionePageComponent } from './registrazione-page/registrazione-page.component';
@@ -50,7 +49,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
   declarations: [
     AppComponent,
     HomeComponent,
-    MappaComponent,
     ChiSiamoComponent,
     LoginPageComponent,
     RegistrazionePageComponent,
