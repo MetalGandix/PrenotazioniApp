@@ -19,6 +19,10 @@ export class PrenotazioneCampoService {
   }
 
 
+  public getCampi(): Observable<Campo[]>{ 
+    return this.http.get<Campo[]>(this.url + "getCampi");
+  }
+
   public vediPrenotazioniCampi(): Observable<PrenotazioneCampo[]> {
     return this.http.get<PrenotazioneCampo[]>(this.url + "vediprenotazioniCampi");
   }

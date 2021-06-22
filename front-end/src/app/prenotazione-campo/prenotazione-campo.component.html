@@ -1,21 +1,63 @@
 <div *ngIf="visitor" class="container" style="text-align-last: center; margin-top: 20px;">
-<p>Example of the range selection</p>
 
-<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"[dayTemplate]="t" outsideDays="hidden" [markDisabled]="isDisabled">
-</ngb-datepicker>
+  <div *ngFor="let c of campo" class="campi" style="margin-bottom: 20px;">
 
-<ng-template #t let-date let-focused="focused">
-  <span class="custom-day"
-        [class.focused]="focused"
-        [class.isDisabled]="isDisabled(date)"
-        (mouseenter)="hoveredDate = date"
-        (mouseleave)="hoveredDate = null">
-    {{ date.day }}
-  </span>
-</ng-template>
+    <div class="row">
+      <div class="col-lg-4">
+        {{c.nome}}
+      </div>
+      <div *ngIf="illuminazioneCampo[c.id]" class="col-lg-4">
+        Campo con illuminazione
+      </div>
+      <div *ngIf="!illuminazioneCampo[c.id]" class="col-lg-4">
+        Campo senza illuminazione
+      </div>
+    </div>
+
+    <button *ngIf="!openDatePickerBoolean" class="btn btn-primary" (click)="openDatePicker()">Premi per aprire il
+      calendario del campo</button>
+
+    <ngb-datepicker *ngIf="openDatePickerBoolean" #dp [(ngModel)]="model" (navigate)="date = $event.next"
+      [dayTemplate]="t" outsideDays="hidden" [markDisabled]="isDisabled">
+    </ngb-datepicker>
+
+    <button *ngIf="openDatePickerBoolean" class="btn btn-success" (click)="prenotaCampo(c)" style="margin-left: 10px;">Prenota in questo
+      giorno</button>
+
+
+    </div>
+
+  <ng-template #t let-date let-focused="focused">
+    <span class="custom-day" [class.focused]="focused" [class.isDisabled]="isDisabled(date)" [class.isSelectable]="isSelectable(date)"
+      (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+      {{ date.day }}
+    </span>
+  </ng-template>
 </div>
 
 <div *ngIf="!visitor" class="container" style="text-align-last: center; margin-top: 20px;">
   <p>Attualmente non sei loggato</p>
-<button class="btn btn-primary" routerLink="/login"> Vai al login </button>
+  <button class="btn btn-primary" routerLink="/login"> Vai al login </button>
 </div>
+
+<!-- 
+            <div class="text-center" *ngIf="!visitor">
+                <br>
+                <h2>Per prenotare il Campo devi effettuare il login</h2>
+                <br>
+
+
+                <button routerLink="/login" class="btn btnyellow"
+                    style="display:block; margin-left: auto; margin-right: auto;">Vai al login</button>
+            </div>
+
+            <div *ngIf="visitor">
+
+                <div class="row" style="margin-top: 20px;" *ngFor="let p of prenotazioniNonEffettuate">
+                    <div>{{i}} {{p.data}}</div>
+                    <div>{{i}} {{p.orario}}</div>
+                    <div>{{i}} {{p.campo.nome}}</div>
+                    <div><button class="btn  btnyellow" (click)="prenotaCampo(p)">Clicca per prenotare</button></div>
+                    <br>
+                </div>
+            </div> -->

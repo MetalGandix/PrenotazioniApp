@@ -69,3 +69,7 @@
         background-color: red;
         pointer-events: none;
       }
+
+      .isSelectable{
+        background-color: rgb(56, 199, 56);
+      }
