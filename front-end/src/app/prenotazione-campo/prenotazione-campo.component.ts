@@ -90,6 +90,10 @@ export class PrenotazioneCampoComponent implements OnInit {
     })
   }
 
+  event(event){
+    console.log(this.model)
+  }
+
   openDatePicker(){
     this.openDatePickerBoolean = true
   }

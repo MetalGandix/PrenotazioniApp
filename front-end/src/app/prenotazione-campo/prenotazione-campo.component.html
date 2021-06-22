@@ -1,15 +1,15 @@
 <div *ngIf="visitor" class="container" style="text-align-last: center; margin-top: 20px;">
 
-  <div *ngFor="let c of campo" class="campi" style="margin-bottom: 20px;">
+  <div *ngFor="let campoSingolo of campo" class="campi" style="margin-bottom: 20px;">
 
     <div class="row">
       <div class="col-lg-4">
-        {{c.nome}}
+        {{campoSingolo.nome}}
       </div>
-      <div *ngIf="illuminazioneCampo[c.id]" class="col-lg-4">
+      <div *ngIf="illuminazioneCampo[campoSingolo.id]" class="col-lg-4">
         Campo con illuminazione
       </div>
-      <div *ngIf="!illuminazioneCampo[c.id]" class="col-lg-4">
+      <div *ngIf="!illuminazioneCampo[campoSingolo.id]" class="col-lg-4">
         Campo senza illuminazione
       </div>
     </div>
@@ -23,7 +23,7 @@
 
     <button *ngIf="openDatePickerBoolean" class="btn btn-success" (click)="prenotaCampo(c)" style="margin-left: 10px;">Prenota in questo
       giorno</button>
-
+      <button (click)="event($event)">Premi</button>
 
     </div>
 
@@ -33,6 +33,7 @@
       {{ date.day }}
     </span>
   </ng-template>
+
 </div>
 
 <div *ngIf="!visitor" class="container" style="text-align-last: center; margin-top: 20px;">
