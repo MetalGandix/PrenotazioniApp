@@ -21,9 +21,17 @@
       [dayTemplate]="t" outsideDays="hidden" [markDisabled]="isDisabled">
     </ngb-datepicker>
 
-    <button *ngIf="openDatePickerBoolean" class="btn btn-success" (click)="prenotaCampo(c)" style="margin-left: 10px;">Prenota in questo
-      giorno</button>
-      <button (click)="prenotationByDate()">Premi</button>
+    <button *ngIf="openDatePickerBoolean" class="btn btn-success" (click)="prenotationByDate()" style="margin-left: 10px; font-size: smaller;">Vedi orari disponibili in questo giorno</button>
+  
+    <div *ngFor="let prenotazioni of prenotazioniByDate" style="display: inline-table;">
+      <div *ngIf="orarioPrenotato[prenotazioni.id]" class="col-lg-4" style="color: red;">
+        {{prenotazioni.orario}} Prenotato
+      </div>
+      <div *ngIf="!orarioPrenotato[prenotazioni.id]" class="col-lg-4" style="color: green;">
+        {{prenotazioni.orario}} Non prenotato
+      </div>
+      <button>Prenota questo orario</button>
+    </div>
 
     </div>
 

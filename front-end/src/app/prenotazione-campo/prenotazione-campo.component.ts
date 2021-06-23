@@ -40,6 +40,7 @@ export class PrenotazioneCampoComponent implements OnInit {
   campo: Campo[] = []
   illuminazioneCampo: boolean[] = []
   prenotazioniByDate: PrenotazioneCampo[] = []
+  orarioPrenotato: boolean[] = []
 
   ngOnInit(): void {
     if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
@@ -63,9 +64,9 @@ export class PrenotazioneCampoComponent implements OnInit {
 
       this.prenotazioneList.forEach(p => {
         if (p.prenotato) {
-          this.prenotazioniEffettuate.push(p)
-        } else {
           this.prenotazioniNonEffettuate.push(p)
+        } else {
+          this.prenotazioniEffettuate.push(p)
         }
       })
       
@@ -100,7 +101,13 @@ export class PrenotazioneCampoComponent implements OnInit {
     }
     this.service.vediPrenotazioniConData(date).subscribe(d => {
       this.prenotazioniByDate = d
-      console.log(this.prenotazioniByDate)
+      this.prenotazioniByDate.forEach(p => {
+        if(p.prenotato){
+          this.orarioPrenotato[p.id] = true
+        }else{
+          this.orarioPrenotato[p.id] = false
+        }
+      })
     })
   }
 
