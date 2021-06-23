@@ -1,10 +1,8 @@
 package app.prenotazione.Controller;
-
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
 import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,13 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import app.prenotazione.Entity.prenotazione_campo.PrenotazioneCampo;
 import app.prenotazione.Entity.utente.DAOUser;
 import app.prenotazione.Jwt.JwtUserDetailsService;
 import app.prenotazione.Repository.PrenotazioneCampoRepository;
 import app.prenotazione.Entity.prenotazione_campo.Campo;
-
 
 @RestController
 @CrossOrigin
@@ -84,4 +80,10 @@ public class PrenotazioneCampoController {
         campoRep.save(prenotazione.get());
         return "Prenotazione aggiornata correttamente";
     }
+
+    @GetMapping("/prendiPrenotazioneCampoUtenteByData/{data}")
+    public List<PrenotazioneCampo> vediCampiConData(Authentication authentication, @PathVariable String data){
+        LocalDate date = LocalDate.parse(data);
+        return (List<PrenotazioneCampo>) campoRep.findByData(date);
+    } 
 }

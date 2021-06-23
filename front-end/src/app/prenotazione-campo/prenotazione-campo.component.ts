@@ -39,6 +39,7 @@ export class PrenotazioneCampoComponent implements OnInit {
   pickDates:NgbDateStruct[]=[]
   campo: Campo[] = []
   illuminazioneCampo: boolean[] = []
+  prenotazioniByDate: PrenotazioneCampo[] = []
 
   ngOnInit(): void {
     if (sessionStorage.getItem("Role") === "ROLE_ADMIN") {
@@ -90,8 +91,17 @@ export class PrenotazioneCampoComponent implements OnInit {
     })
   }
 
-  event(event){
-    console.log(this.model)
+  prenotationByDate(){
+    let date: string
+    if(this.model.month.toString().length == 1){
+    date = this.model.year.toString() + "-" + "0" + this.model.month.toString() + "-" + this.model.day.toString()
+    }else{
+      date = this.model.year.toString() + "-" + this.model.month.toString() + "-" + this.model.day.toString()
+    }
+    this.service.vediPrenotazioniConData(date).subscribe(d => {
+      this.prenotazioniByDate = d
+      console.log(this.prenotazioniByDate)
+    })
   }
 
   openDatePicker(){

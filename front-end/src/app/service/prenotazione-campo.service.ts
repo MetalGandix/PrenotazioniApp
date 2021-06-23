@@ -47,14 +47,8 @@ export class PrenotazioneCampoService {
     return this.http.get<PrenotazioneCampo[]>(this.url + "prendiVisitaUtente/" + username)
   }
 
-  
-
-
-
-
-
-
-
-
+  public vediPrenotazioniConData(data: string): Observable<PrenotazioneCampo[]>{
+    return this.http.get<PrenotazioneCampo[]>(this.url + "prendiPrenotazioneCampoUtenteByData/" + data)
+  }
 
 }
